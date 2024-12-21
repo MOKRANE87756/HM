@@ -13,48 +13,71 @@
             color: #333;
         }
         header {
-            background-color: #4CAF50;
+            background-image: url('https://example.com/header-bg.jpg');
+            background-size: cover;
             color: white;
-            padding: 1em 0;
+            padding: 2em 0;
             text-align: center;
         }
         nav {
             text-align: center;
             background-color: #333;
             padding: 1em 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         nav a {
             color: white;
             margin: 0 15px;
             text-decoration: none;
+            padding: 10px 20px;
         }
         nav a:hover {
-            text-decoration: underline;
+            background-color: #4CAF50;
+            border-radius: 5px;
         }
         main {
             padding: 2em;
             text-align: center;
         }
         .content {
-            max-width: 800px;
+            max-width: 1000px;
             margin: auto;
             text-align: left;
         }
         .content h2 {
             color: #4CAF50;
+            margin-bottom: 1em;
         }
         .service-list ul {
             list-style-type: none;
             padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
         }
         .service-list li {
             background-color: #e0e0e0;
-            margin: 5px 0;
-            padding: 10px;
-            border-radius: 5px;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1 1 30%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .team, .testimonials, .blog, .contact {
             margin-top: 4em;
+        }
+        .team ul, .testimonials ul, .blog ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .team li, .testimonials li, .blog li {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         footer {
             background-color: #4CAF50;
@@ -116,8 +139,10 @@
             <section id="testimonials" class="testimonials">
                 <h2>شهادات العملاء</h2>
                 <p>ما يقوله عملاؤنا عنا:</p>
-                <blockquote>"شركة HM ساعدتنا على زيادة مبيعاتنا بشكل كبير!" - شركة XYZ</blockquote>
-                <blockquote>"خدمة رائعة ونتائج مذهلة." - شركة ABC</blockquote>
+                <ul>
+                    <li>"شركة HM ساعدتنا على زيادة مبيعاتنا بشكل كبير!" - شركة XYZ</li>
+                    <li>"خدمة رائعة ونتائج مذهلة." - شركة ABC</li>
+                </ul>
             </section>
 
             <section id="blog" class="blog">

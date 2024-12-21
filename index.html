@@ -55,10 +55,11 @@
             text-decoration: none;
             padding: 12px 25px;
             border-radius: 5px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
         nav a:hover {
             background-color: #4CAF50;
+            transform: scale(1.1);
         }
 
         main {
@@ -106,6 +107,24 @@
             font-size: 1.2em;
             color: #555;
         }
+
+        /* زر العودة إلى الأعلى */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 2em;
+            display: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .back-to-top:hover {
+            background-color: #45a049;
+        }
         
         .blog {
             margin-top: 4em;
@@ -129,7 +148,7 @@
             transform: translateY(-5px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
-        
+
         footer {
             background-color: #4CAF50;
             color: white;
@@ -252,5 +271,19 @@
     <footer>
         <p>&copy; 2024 شركة HM للتسويق الإلكتروني</p>
     </footer>
+
+    <!-- زر العودة إلى الأعلى -->
+    <button class="back-to-top" onclick="window.scrollTo(0, 0)">↑</button>
+
+    <script>
+        // إظهار/إخفاء زر العودة إلى الأعلى
+        window.onscroll = function() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                document.querySelector(".back-to-top").style.display = "block";
+            } else {
+                document.querySelector(".back-to-top").style.display = "none";
+            }
+        };
+    </script>
 </body>
 </html>

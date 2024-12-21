@@ -31,7 +31,7 @@
             background-image: url('https://example.com/header-bg.jpg');
             background-size: cover;
             color: white;
-            padding: 5em 0;
+            padding: 6em 0;
             text-align: center;
             position: relative;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
@@ -39,8 +39,18 @@
         header h1 {
             font-size: 3.5em;
             text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+            animation: fadeIn 2s ease-in-out;
         }
-        
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
         nav {
             text-align: center;
             background-color: #333;
@@ -58,7 +68,7 @@
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
         nav a:hover {
-            background-color: #0056b3; /* اللون الأزرق الداكن */
+            background-color: #0056b3; /* الأزرق الداكن */
             transform: scale(1.1);
         }
 
@@ -72,10 +82,22 @@
             text-align: left;
         }
         .content h2 {
-            color: #007BFF; /* اللون الأزرق الزاهي */
+            color: #007BFF;
             margin-bottom: 1.5em;
             font-size: 2.8em;
             text-align: center;
+            animation: slideInFromLeft 1s ease-out;
+        }
+
+        @keyframes slideInFromLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
 
         .service-list ul {
@@ -100,7 +122,7 @@
         }
         .service-list li i {
             font-size: 2.5em;
-            color: #007BFF; /* الأزرق الزاهي */
+            color: #007BFF;
             margin-bottom: 10px;
         }
         .service-list li p {
@@ -211,7 +233,7 @@
             transition: color 0.3s ease;
         }
         .social-links a:hover {
-            color: #007BFF; /* الأزرق الزاهي */
+            color: #007BFF;
         }
     </style>
 </head>

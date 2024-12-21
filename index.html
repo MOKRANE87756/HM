@@ -7,31 +7,75 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            color: #333;
         }
         header {
             background-color: #4CAF50;
             color: white;
             padding: 1em 0;
+            text-align: center;
+        }
+        nav {
+            text-align: center;
+            background-color: #333;
+            padding: 1em 0;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
         }
         main {
             padding: 2em;
+            text-align: center;
+        }
+        .content {
+            max-width: 800px;
+            margin: auto;
+            text-align: left;
+        }
+        .content h2 {
+            color: #4CAF50;
+        }
+        .service-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .service-list li {
+            background-color: #e0e0e0;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .team, .testimonials, .blog {
+            margin-top: 4em;
         }
         footer {
             background-color: #4CAF50;
             color: white;
             padding: 1em 0;
-            position: fixed;
-            width: 100%;
+            text-align: center;
+            position: relative;
             bottom: 0;
+            width: 100%;
         }
-        .content {
-            text-align: left;
-            max-width: 800px;
-            margin: auto;
+        .contact-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 2em;
+            display: inline-block;
+        }
+        .contact-btn:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
@@ -39,18 +83,58 @@
     <header>
         <h1>مرحبا بكم في شركة HM للتسويق الإلكتروني</h1>
     </header>
+    <nav>
+        <a href="#services">خدماتنا</a>
+        <a href="#team">فريق العمل</a>
+        <a href="#testimonials">شهادات العملاء</a>
+        <a href="#blog">المدونة</a>
+        <a href="#contact">اتصل بنا</a>
+    </nav>
     <main>
         <div class="content">
-            <p>نحن نقدم أفضل خدمات التسويق الإلكتروني لمساعدتك في تنمية عملك.</p>
-            <h2>خدماتنا</h2>
-            <ul>
-                <li>إدارة حملات إعلانية على وسائل التواصل الاجتماعي</li>
-                <li>تحسين محركات البحث (SEO)</li>
-                <li>تحليل البيانات وتقديم تقارير مفصلة</li>
-                <li>إنشاء محتوى إبداعي</li>
-            </ul>
-            <h2>تواصل معنا</h2>
-            <p>للمزيد من المعلومات، يمكنك التواصل معنا عبر البريد الإلكتروني: info@hm-marketing.com</p>
+            <section id="services" class="service-list">
+                <h2>خدماتنا</h2>
+                <ul>
+                    <li>إدارة حملات إعلانية على وسائل التواصل الاجتماعي</li>
+                    <li>تحسين محركات البحث (SEO)</li>
+                    <li>تحليل البيانات وتقديم تقارير مفصلة</li>
+                    <li>إنشاء محتوى إبداعي</li>
+                </ul>
+            </section>
+
+            <section id="team" class="team">
+                <h2>فريق العمل</h2>
+                <p>لدينا فريق من المحترفين ذوي الخبرة في مجال التسويق الإلكتروني.</p>
+                <ul>
+                    <li>أحمد - مدير التسويق</li>
+                    <li>مريم - خبيرة SEO</li>
+                    <li>يوسف - محلل بيانات</li>
+                    <li>سارة - كاتبة محتوى</li>
+                </ul>
+            </section>
+
+            <section id="testimonials" class="testimonials">
+                <h2>شهادات العملاء</h2>
+                <p>ما يقوله عملاؤنا عنا:</p>
+                <blockquote>"شركة HM ساعدتنا على زيادة مبيعاتنا بشكل كبير!" - شركة XYZ</blockquote>
+                <blockquote>"خدمة رائعة ونتائج مذهلة." - شركة ABC</blockquote>
+            </section>
+
+            <section id="blog" class="blog">
+                <h2>المدونة</h2>
+                <p>أحدث المقالات:</p>
+                <ul>
+                    <li><a href="#">كيف تحقق نجاحًا في حملاتك الإعلانية على وسائل التواصل الاجتماعي</a></li>
+                    <li><a href="#">أفضل استراتيجيات SEO لعام 2024</a></li>
+                    <li><a href="#">تحليل البيانات: كيف تقيس نجاح حملاتك التسويقية</a></li>
+                </ul>
+            </section>
+
+            <section id="contact" class="contact">
+                <h2>اتصل بنا</h2>
+                <p>للمزيد من المعلومات، يمكنك التواصل معنا عبر البريد الإلكتروني: info@hm-marketing.com</p>
+                <a href="mailto:info@hm-marketing.com" class="contact-btn">اتصل بنا</a>
+            </section>
         </div>
     </main>
     <footer>
@@ -58,3 +142,28 @@
     </footer>
 </body>
 </html>
+<style>
+    .service-list {
+        text-align: left;
+        max-width: 600px;
+        margin: auto;
+    }
+    .service-list ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    .service-list li {
+        background-color: #e0e0e0;
+        margin: 5px 0;
+        padding: 10px;
+        border-radius: 5px;
+    }
+</style>
+<main>
+    <div class="content">
+        <p>نحن نقدم أفضل خدمات التسويق الإلكتروني لمساعدتك في تنمية عملك.</p>
+        <img src="https://example.com/your-image.jpg" alt="خدمات التسويق الإلكتروني">
+        <h2>خدماتنا</h2>
+        <!-- بقية المحتوى -->
+    </div>
+</main>

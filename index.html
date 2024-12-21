@@ -17,7 +17,7 @@
             line-height: 1.6;
             scroll-behavior: smooth;
         }
-
+        
         /* شريط العنوان العلوي */
         .top-bar {
             background-color: #007BFF;
@@ -27,24 +27,6 @@
             font-size: 1.1em;
         }
 
-        /* تأثير تحميل الصفحة */
-        #loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-        #loader img {
-            width: 50px;
-        }
-
-        /* الهيدر */
         header {
             background-image: url('https://example.com/header-bg.jpg'); /* ضع رابط الصورة الخلفية هنا */
             background-size: cover;
@@ -54,14 +36,12 @@
             position: relative;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
-
         header h1 {
             font-size: 3.5em;
             text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
             animation: fadeIn 2s ease-in-out;
         }
 
-        /* تأثير fadeIn */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -71,7 +51,6 @@
             }
         }
 
-        /* التنقل */
         nav {
             text-align: center;
             background-color: #333;
@@ -93,33 +72,34 @@
             transform: scale(1.1);
         }
 
-        /* أقسام الموقع */
         main {
             padding: 3em 1em;
             text-align: center;
         }
-
         .content {
             max-width: 1100px;
             margin: auto;
             text-align: left;
         }
-
-        /* تحسين تصميم الأقسام */
         .content h2 {
             color: #007BFF;
             margin-bottom: 1.5em;
             font-size: 2.8em;
             text-align: center;
+            animation: slideInFromLeft 1s ease-out;
         }
 
-        /* إضافة خلفية متدرجة للأقسام */
-        .service-list {
-            background: linear-gradient(45deg, #e1e6f0, #f4f7fa);
-            padding: 3em 0;
+        @keyframes slideInFromLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
 
-        /* تنسيق خدمة */
         .service-list ul {
             list-style-type: none;
             padding: 0;
@@ -127,7 +107,6 @@
             flex-wrap: wrap;
             justify-content: space-around;
         }
-
         .service-list li {
             background-color: #e0e0e0;
             margin: 15px;
@@ -137,74 +116,18 @@
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
-
         .service-list li:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
-
         .service-list li i {
             font-size: 2.5em;
             color: #007BFF;
             margin-bottom: 10px;
         }
-
         .service-list li p {
             font-size: 1.2em;
             color: #555;
-        }
-
-        /* تحسين التفاعل مع الأزرار */
-        .contact-btn {
-            background-color: #007BFF;
-            color: white;
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 2em;
-            display: inline-block;
-            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
-        }
-
-        .contact-btn:hover {
-            background-color: #0056b3;
-            transform: scale(1.05);
-        }
-
-        /* تحسين استجابة الموقع للأجهزة المحمولة */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.5em;
-            }
-            .service-list li {
-                flex: 1 1 100%;
-            }
-        }
-
-        /* الأيقونات الاجتماعية */
-        .social-links a {
-            color: white;
-            margin: 0 15px;
-            font-size: 1.5em;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: #007BFF;
-        }
-
-        /* تفاعل مع التمرير */
-        .fade-in {
-            opacity: 0;
-            animation: fadeIn 1.5s forwards;
-        }
-
-        /* تحسين الخلفية */
-        footer {
-            background-color: #007BFF;
-            color: white;
-            padding: 1.5em 0;
-            text-align: center;
         }
 
         /* زر العودة إلى الأعلى */
@@ -221,18 +144,100 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-
         .back-to-top:hover {
             background-color: #0056b3;
+        }
+
+        .blog {
+            margin-top: 4em;
+        }
+        .blog ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .blog li {
+            margin: 10px 0;
+            padding: 15px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .blog li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        footer {
+            background-color: #007BFF;
+            color: white;
+            padding: 1.5em 0;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .contact-btn {
+            background-color: #007BFF;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 2em;
+            display: inline-block;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .contact-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* تأثيرات التمرير */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        .zoom-in {
+            transform: scale(0.8);
+            animation: zoomIn 1s forwards;
+        }
+        @keyframes zoomIn {
+            to {
+                transform: scale(1);
+            }
+        }
+
+        /* تحسين استجابة الموقع للأجهزة المحمولة */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+            .service-list li {
+                flex: 1 1 100%;
+            }
+        }
+
+        /* ألوان وتنسيقات روابط الوسائل الاجتماعية */
+        .social-links a {
+            color: white;
+            margin: 0 15px;
+            font-size: 1.5em;
+            transition: color 0.3s ease;
+        }
+        .social-links a:hover {
+            color: #007BFF;
         }
     </style>
 </head>
 <body>
-    <!-- تأثير التحميل -->
-    <div id="loader">
-        <img src="https://example.com/loader.gif" alt="Loading...">
-    </div>
-
     <!-- شريط العنوان العلوي -->
     <div class="top-bar">
         <p>نحن هنا لمساعدتك في النجاح الرقمي! اتصل بنا اليوم.</p>
@@ -260,7 +265,7 @@
                 </ul>
             </section>
 
-            <section id="blog" class="blog fade-in">
+            <section id="blog" class="blog zoom-in">
                 <h2>المدونة</h2>
                 <p>أحدث المقالات:</p>
                 <ul>
@@ -293,11 +298,6 @@
     <button class="back-to-top" onclick="window.scrollTo(0, 0)">↑</button>
 
     <script>
-        // إخفاء صفحة التحميل بعد تحميل الموقع
-        window.addEventListener('load', function() {
-            document.getElementById('loader').style.display = 'none';
-        });
-
         // إظهار/إخفاء زر العودة إلى الأعلى
         window.onscroll = function() {
             if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {

@@ -4,20 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>شركة HM للتسويق الإلكتروني</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* أساسيات */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
             color: #333;
+            line-height: 1.6;
         }
         header {
             background-image: url('https://example.com/header-bg.jpg');
             background-size: cover;
             color: white;
-            padding: 2em 0;
+            padding: 4em 0;
             text-align: center;
+            position: relative;
+        }
+        header h1 {
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
         nav {
             text-align: center;
@@ -32,6 +41,7 @@
             margin: 0 15px;
             text-decoration: none;
             padding: 10px 20px;
+            transition: background-color 0.3s;
         }
         nav a:hover {
             background-color: #4CAF50;
@@ -49,6 +59,7 @@
         .content h2 {
             color: #4CAF50;
             margin-bottom: 1em;
+            font-size: 2.5em;
         }
         .service-list ul {
             list-style-type: none;
@@ -64,6 +75,11 @@
             border-radius: 10px;
             flex: 1 1 30%;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .service-list li:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         }
         .team, .testimonials, .blog, .contact {
             margin-top: 4em;
@@ -78,6 +94,11 @@
             background-color: #e0e0e0;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .team li:hover, .testimonials li:hover, .blog li:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         }
         footer {
             background-color: #4CAF50;
@@ -96,9 +117,30 @@
             border-radius: 5px;
             margin-top: 2em;
             display: inline-block;
+            transition: background-color 0.3s ease-in-out;
         }
         .contact-btn:hover {
             background-color: #45a049;
+        }
+
+        /* تأثيرات التمرير */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        .zoom-in {
+            transform: scale(0.5);
+            animation: zoomIn 1s forwards;
+        }
+        @keyframes zoomIn {
+            to {
+                transform: scale(1);
+            }
         }
     </style>
 </head>
@@ -115,17 +157,17 @@
     </nav>
     <main>
         <div class="content">
-            <section id="services" class="service-list">
+            <section id="services" class="service-list fade-in">
                 <h2>خدماتنا</h2>
                 <ul>
-                    <li>إدارة حملات إعلانية على وسائل التواصل الاجتماعي</li>
-                    <li>تحسين محركات البحث (SEO)</li>
-                    <li>تحليل البيانات وتقديم تقارير مفصلة</li>
-                    <li>إنشاء محتوى إبداعي</li>
+                    <li><i class="fas fa-chart-line"></i> إدارة حملات إعلانية على وسائل التواصل الاجتماعي</li>
+                    <li><i class="fas fa-search"></i> تحسين محركات البحث (SEO)</li>
+                    <li><i class="fas fa-analytics"></i> تحليل البيانات وتقديم تقارير مفصلة</li>
+                    <li><i class="fas fa-pencil-alt"></i> إنشاء محتوى إبداعي</li>
                 </ul>
             </section>
 
-            <section id="team" class="team">
+            <section id="team" class="team zoom-in">
                 <h2>فريق العمل</h2>
                 <p>لدينا فريق من المحترفين ذوي الخبرة في مجال التسويق الإلكتروني.</p>
                 <ul>
@@ -136,7 +178,7 @@
                 </ul>
             </section>
 
-            <section id="testimonials" class="testimonials">
+            <section id="testimonials" class="testimonials fade-in">
                 <h2>شهادات العملاء</h2>
                 <p>ما يقوله عملاؤنا عنا:</p>
                 <ul>
@@ -145,7 +187,7 @@
                 </ul>
             </section>
 
-            <section id="blog" class="blog">
+            <section id="blog" class="blog zoom-in">
                 <h2>المدونة</h2>
                 <p>أحدث المقالات:</p>
                 <ul>

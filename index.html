@@ -282,80 +282,53 @@
                 <ul>
                     <li><i class="fas fa-chart-line"></i> إدارة حملات إعلانية على وسائل التواصل الاجتماعي</li>
                     <li><i class="fas fa-search"></i> تحسين محركات البحث (SEO)</li>
-                    <li><i class="fas fa-envelope"></i> التسويق عبر البريد الإلكتروني</li>
-                    <li><i class="fas fa-bullhorn"></i> استشارات تسويقية</li>
-                    <li><i class="fas fa-desktop"></i> تصميم مواقع الإنترنت</li>
+                    <li><i class="fas fa-bullhorn"></i> استراتيجيات تسويق المحتوى</li>
+                    <li><i class="fas fa-envelope"></i> حملات البريد الإلكتروني</li>
+                    <li><i class="fas fa-laptop"></i> تصميم وتطوير المواقع</li>
                 </ul>
             </section>
 
             <section id="blog" class="fade-in">
                 <h2 class="slide-in">المدونة</h2>
-                <p>تابعوا آخر الأخبار والنصائح في عالم التسويق الإلكتروني.</p>
+                <p>تابع آخر أخبار التسويق الإلكتروني ونصائحنا الحصرية لتحسين أداء أعمالك على الإنترنت.</p>
+                <p>نحن نغطي مواضيع متنوعة تشمل التسويق عبر السوشيال ميديا، تحسين محركات البحث، التسويق بالمحتوى، والمزيد.</p>
             </section>
 
             <section id="contact" class="fade-in">
                 <h2 class="slide-in">اتصل بنا</h2>
-                <p>تواصل معنا لمزيد من المعلومات حول خدماتنا.</p>
-                <a href="mailto:info@hm-marketing.com" class="contact-btn">أرسل رسالة</a>
+                <p>هل لديك سؤال أو استفسار؟ تواصل معنا اليوم وسنكون سعداء بمساعدتك.</p>
+                <p>البريد الإلكتروني: <a href="mailto:hamdaouimokrane@gmail.com" class="contact-btn">hamdaouimokrane@gmail.com</a></p>
             </section>
         </div>
     </main>
 
     <footer>
+        <p>© 2024 شركة HM للتسويق الإلكتروني. جميع الحقوق محفوظة.</p>
         <div class="social-links">
             <a href="#"><i class="fab fa-facebook"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-linkedin"></i></a>
         </div>
-        <p>&copy; 2024 شركة HM للتسويق الإلكتروني. جميع الحقوق محفوظة.</p>
     </footer>
 
-    <!-- زر العودة إلى الأعلى -->
-    <div class="back-to-top" id="backToTop"><i class="fas fa-chevron-up"></i></div>
+    <a href="#" class="back-to-top"><i class="fas fa-chevron-up"></i></a>
 
     <script>
-        // إخفاء تأثير التحميل بعد تحميل الصفحة
-        window.addEventListener('load', function() {
+        // إزالة تأثير التحميل
+        window.addEventListener('load', () => {
             document.getElementById('loader').style.display = 'none';
         });
 
-        // إظهار زر العودة إلى الأعلى عند التمرير للأسفل
-        window.addEventListener('scroll', function() {
-            var backToTop = document.getElementById('backToTop');
-            if (window.scrollY > 300) {
-                backToTop.style.display = 'block';
+        // إظهار زر العودة إلى الأعلى عند التمرير
+        window.addEventListener('scroll', () => {
+            const backToTopButton = document.querySelector('.back-to-top');
+            if (window.scrollY > 500) {
+                backToTopButton.style.display = 'block';
             } else {
-                backToTop.style.display = 'none';
+                backToTopButton.style.display = 'none';
             }
         });
-
-        // العودة إلى الأعلى عند الضغط على الزر
-        document.getElementById('backToTop').addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // تطبيق تأثير التمرير عند الظهور على الأقسام
-        var fadeElements = document.querySelectorAll('.fade-in');
-        var slideElements = document.querySelectorAll('.slide-in');
-
-        function handleScroll() {
-            fadeElements.forEach(function(element) {
-                if (element.getBoundingClientRect().top < window.innerHeight - 50) {
-                    element.style.opacity = 1;
-                }
-            });
-            slideElements.forEach(function(element) {
-                if (element.getBoundingClientRect().top < window.innerHeight - 50) {
-                    element.style.opacity = 1;
-                }
-            });
-        }
-
-        window.addEventListener('scroll', handleScroll);
-        handleScroll();
     </script>
 </body>
 </html>

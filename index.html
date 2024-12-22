@@ -281,4 +281,81 @@
                 <h2 class="slide-in">خدماتنا</h2>
                 <ul>
                     <li><i class="fas fa-chart-line"></i> إدارة حملات إعلانية على وسائل التواصل الاجتماعي</li>
-                    <li><i class="fas fa-search"></i> تحسين مح
+                    <li><i class="fas fa-search"></i> تحسين محركات البحث (SEO)</li>
+                    <li><i class="fas fa-envelope"></i> التسويق عبر البريد الإلكتروني</li>
+                    <li><i class="fas fa-bullhorn"></i> استشارات تسويقية</li>
+                    <li><i class="fas fa-desktop"></i> تصميم مواقع الإنترنت</li>
+                </ul>
+            </section>
+
+            <section id="blog" class="fade-in">
+                <h2 class="slide-in">المدونة</h2>
+                <p>تابعوا آخر الأخبار والنصائح في عالم التسويق الإلكتروني.</p>
+            </section>
+
+            <section id="contact" class="fade-in">
+                <h2 class="slide-in">اتصل بنا</h2>
+                <p>تواصل معنا لمزيد من المعلومات حول خدماتنا.</p>
+                <a href="mailto:info@hm-marketing.com" class="contact-btn">أرسل رسالة</a>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p>&copy; 2024 شركة HM للتسويق الإلكتروني. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <!-- زر العودة إلى الأعلى -->
+    <div class="back-to-top" id="backToTop"><i class="fas fa-chevron-up"></i></div>
+
+    <script>
+        // إخفاء تأثير التحميل بعد تحميل الصفحة
+        window.addEventListener('load', function() {
+            document.getElementById('loader').style.display = 'none';
+        });
+
+        // إظهار زر العودة إلى الأعلى عند التمرير للأسفل
+        window.addEventListener('scroll', function() {
+            var backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+
+        // العودة إلى الأعلى عند الضغط على الزر
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // تطبيق تأثير التمرير عند الظهور على الأقسام
+        var fadeElements = document.querySelectorAll('.fade-in');
+        var slideElements = document.querySelectorAll('.slide-in');
+
+        function handleScroll() {
+            fadeElements.forEach(function(element) {
+                if (element.getBoundingClientRect().top < window.innerHeight - 50) {
+                    element.style.opacity = 1;
+                }
+            });
+            slideElements.forEach(function(element) {
+                if (element.getBoundingClientRect().top < window.innerHeight - 50) {
+                    element.style.opacity = 1;
+                }
+            });
+        }
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll();
+    </script>
+</body>
+</html>

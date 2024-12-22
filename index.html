@@ -11,7 +11,7 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(45deg, #f4f7fa, #e1e6f0); /* خلفية متدرجة */
+            background: linear-gradient(45deg, #f4f7fa, #e1e6f0);
             color: #333;
             line-height: 1.6;
             scroll-behavior: smooth;
@@ -42,7 +42,7 @@
         }
 
         header {
-            background-image: url('https://example.com/header-bg.jpg'); /* ضع رابط الصورة الخلفية هنا */
+            background-image: url('https://example.com/header-bg.jpg');
             background-size: cover;
             color: white;
             padding: 6em 0;
@@ -241,15 +241,6 @@
             transform: scale(1.05);
         }
 
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.5em;
-            }
-            .service-list li {
-                flex: 1 1 100%;
-            }
-        }
-
         .social-links a {
             color: white;
             margin: 0 15px;
@@ -291,21 +282,68 @@
             background-color: #0056b3;
         }
 
-        @keyframes slideIn {
-            from {
-                transform: translateX(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
+        .contact-popup {
+            display: none;
+            position: fixed;
+            top: 20%;
+            right: 20px;
+            background-color: #007BFF;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-popup h3 {
+            margin: 0;
+        }
+
+        .contact-popup button {
+            background-color: #0056b3;
+            border: none;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .contact-popup button:hover {
+            background-color: #003d7a;
+        }
+
+        .calc-container {
+            background-color: #e0e0e0;
+            padding: 3em 1em;
+            text-align: center;
+            margin-top: 2em;
+        }
+
+        .calc-container input[type="number"] {
+            padding: 10px;
+            width: 70%;
+            margin-bottom: 1em;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .calc-container button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .calc-container button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
     <div id="loader">
-        <img src="https://example.com/loader.gif" alt="Loading..."> <!-- استبدل برابط لصورة تحميل -->
+        <img src="https://example.com/loader.gif" alt="Loading...">
     </div>
 
     <header>
@@ -358,7 +396,6 @@
             <section id="blog" class="fade-in">
                 <h2 class="slide-in">المدونة</h2>
                 <p>تابع آخر أخبار التسويق الإلكتروني ونصائحنا الحصرية لتحسين أداء أعمالك على الإنترنت.</p>
-                <p>نحن نغطي مواضيع متنوعة تشمل التسويق عبر السوشيال ميديا، تحسين محركات البحث، التسويق بالمحتوى، والمزيد.</p>
             </section>
 
             <section id="faq" class="faq-section fade-in">
@@ -393,6 +430,15 @@
                 <p>هل لديك سؤال أو استفسار؟ لا تتردد في الاتصال بنا عبر البريد الإلكتروني: <a href="mailto:hamdaouimokrane@gmail.com">hamdaouimokrane@gmail.com</a></p>
                 <a href="mailto:hamdaouimokrane@gmail.com" class="contact-btn">تواصل معنا</a>
             </section>
+
+            <section class="calc-container fade-in">
+                <h2 class="slide-in">احسب تكلفة حملتك الإعلانية</h2>
+                <form>
+                    <input type="number" id="campaign-budget" placeholder="أدخل ميزانيتك الإعلانية" min="0">
+                    <button type="button" onclick="calculateCost()">احسب</button>
+                    <p id="calculated-cost" style="font-size: 1.5em; margin-top: 10px;"></p>
+                </form>
+            </section>
         </div>
     </main>
 
@@ -416,16 +462,14 @@
             document.getElementById('loader').style.display = 'none';
         });
 
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 100) {
-                document.querySelector('.back-to-top').style.display = 'block';
-            } else {
-                document.querySelector('.back-to-top').style.display = 'none';
-            }
-        });
-
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function calculateCost() {
+            let budget = document.getElementById("campaign-budget").value;
+            let cost = budget * 0.1;  // افتراض أن 10% من الميزانية تذهب للإعلانات
+            document.getElementById("calculated-cost").textContent = "تكلفة الحملة الإعلانية تقريباً: " + cost + " دولار.";
         }
     </script>
 </body>

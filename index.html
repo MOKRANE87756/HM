@@ -144,19 +144,19 @@
             color: #555;
         }
 
-        .clients-section, .projects-section {
+        .clients-section, .projects-section, .faq-section, .newsletter-section {
             padding: 3em 1em;
             text-align: center;
             background: #f4f7fa;
         }
 
-        .clients-section h2, .projects-section h2 {
+        .clients-section h2, .projects-section h2, .faq-section h2, .newsletter-section h2 {
             color: #007BFF;
             margin-bottom: 1.5em;
             font-size: 2.5em;
         }
 
-        .clients-logos, .projects-gallery {
+        .clients-logos, .projects-gallery, .faq-list {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -172,6 +172,57 @@
 
         .clients-logos img:hover, .projects-gallery img:hover {
             transform: scale(1.1);
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: auto;
+            text-align: left;
+        }
+
+        .faq-list .faq-item {
+            background-color: #e0e0e0;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-list .faq-item h3 {
+            margin: 0;
+            font-size: 1.4em;
+        }
+
+        .faq-list .faq-item p {
+            margin: 10px 0 0 0;
+            font-size: 1.1em;
+        }
+
+        .newsletter-form {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .newsletter-form input[type="email"] {
+            padding: 10px;
+            width: 70%;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .newsletter-form button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #0056b3;
         }
 
         .contact-btn {
@@ -250,40 +301,25 @@
                 opacity: 1;
             }
         }
-
-        .slide-in {
-            opacity: 0;
-            animation: slideIn 2s forwards;
-        }
-
-        .sticky-nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: #333;
-            z-index: 1000;
-            padding: 10px 0;
-        }
     </style>
 </head>
 <body>
     <div id="loader">
-        <img src="https://example.com/loader.gif" alt="Loading...">
-    </div>
-
-    <div class="top-bar">
-        <p>نحن هنا لمساعدتك في النجاح الرقمي! اتصل بنا اليوم.</p>
+        <img src="https://example.com/loader.gif" alt="Loading..."> <!-- استبدل برابط لصورة تحميل -->
     </div>
 
     <header>
-        <h1>مرحبا بكم في شركة HM للتسويق الإلكتروني</h1>
+        <h1>شركة HM للتسويق الإلكتروني</h1>
+        <p>تحسين محركات البحث، التسويق بالمحتوى، والإعلانات الممولة</p>
     </header>
 
-    <nav class="sticky-nav">
+    <nav>
         <a href="#services">خدماتنا</a>
         <a href="#clients">عملاؤنا</a>
-        <a href="#projects">المشاريع الأخيرة</a>
+        <a href="#projects">المشاريع</a>
         <a href="#blog">المدونة</a>
+        <a href="#faq">الأسئلة الشائعة</a>
+        <a href="#newsletter">النشرة البريدية</a>
         <a href="#contact">اتصل بنا</a>
     </nav>
 
@@ -292,8 +328,7 @@
             <section id="services" class="service-list fade-in">
                 <h2 class="slide-in">خدماتنا</h2>
                 <ul>
-                    <li><i class="fas fa-chart-line"></i> إدارة حملات إعلانية على وسائل التواصل الاجتماعي</li>
-                    <li><i class="fas fa-search"></i> تحسين محركات البحث (SEO)</li>
+                    <li><i class="fas fa-chart-line"></i> تحسين محركات البحث (SEO)</li>
                     <li><i class="fas fa-bullhorn"></i> استراتيجيات تسويق المحتوى</li>
                     <li><i class="fas fa-envelope"></i> حملات البريد الإلكتروني</li>
                     <li><i class="fas fa-laptop"></i> تصميم وتطوير المواقع</li>
@@ -326,6 +361,33 @@
                 <p>نحن نغطي مواضيع متنوعة تشمل التسويق عبر السوشيال ميديا، تحسين محركات البحث، التسويق بالمحتوى، والمزيد.</p>
             </section>
 
+            <section id="faq" class="faq-section fade-in">
+                <h2 class="slide-in">الأسئلة الشائعة</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <h3>ما هي خدماتكم الرئيسية؟</h3>
+                        <p>نحن نقدم خدمات تحسين محركات البحث، استراتيجيات تسويق المحتوى، حملات البريد الإلكتروني، وتصميم وتطوير المواقع.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>كيف يمكنني البدء في استخدام خدماتكم؟</h3>
+                        <p>يمكنك الاتصال بنا عبر البريد الإلكتروني أو النموذج الموجود في قسم "اتصل بنا" للحصول على استشارة مجانية.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>ما هي تكلفة خدماتكم؟</h3>
+                        <p>تختلف تكلفة خدماتنا بناءً على نوع الخدمة ومتطلبات العميل. يرجى الاتصال بنا للحصول على عرض سعر مخصص.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="newsletter" class="newsletter-section fade-in">
+                <h2 class="slide-in">النشرة البريدية</h2>
+                <p>اشترك في نشرتنا البريدية لتصلك آخر الأخبار والعروض الخاصة بنا.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="أدخل بريدك الإلكتروني">
+                    <button type="submit">اشترك</button>
+                </form>
+            </section>
+
             <section id="contact" class="fade-in">
                 <h2 class="slide-in">اتصل بنا</h2>
                 <p>هل لديك سؤال أو استفسار؟ لا تتردد في الاتصال بنا عبر البريد الإلكتروني: <a href="mailto:hamdaouimokrane@gmail.com">hamdaouimokrane@gmail.com</a></p>
@@ -340,6 +402,7 @@
             <a href="#"><i class="fab fa-twitter"></i></a>
             <a href="#"><i class="fab fa-linkedin-in"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
         </div>
         <p>&copy; 2024 شركة HM للتسويق الإلكتروني. جميع الحقوق محفوظة.</p>
     </footer>

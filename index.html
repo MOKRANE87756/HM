@@ -9,55 +9,259 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
+            background: linear-gradient(45deg, #f4f7fa, #e1e6f0);
+            color: #333;
+            line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
-        header, footer {
-            background-color: #333;
+        .top-bar {
+            background-color: #007BFF;
             color: white;
             padding: 10px 0;
             text-align: center;
+            font-size: 1.1em;
+        }
+
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        #loader img {
+            width: 50px;
+        }
+
+        header {
+            background-image: url('https://example.com/header-bg.jpg');
+            background-size: cover;
+            color: white;
+            padding: 6em 0;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
         nav {
+            text-align: center;
             background-color: #333;
-            color: white;
+            padding: 1.5em 0;
             position: sticky;
             top: 0;
-            padding: 10px;
-            text-align: center;
             z-index: 1000;
         }
-
         nav a {
             color: white;
             margin: 0 20px;
             text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
-
         nav a:hover {
-            text-decoration: underline;
+            background-color: #0056b3;
+            transform: scale(1.1);
         }
 
-        .ad-bar {
-            background-color: #ff9800;
-            color: white;
+        main {
+            padding: 3em 1em;
             text-align: center;
-            padding: 10px;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
         }
 
-        .ad-bar button {
-            background-color: transparent;
+        .content {
+            max-width: 1100px;
+            margin: auto;
+            text-align: left;
+        }
+
+        .content h2 {
+            color: #007BFF;
+            margin-bottom: 1.5em;
+            font-size: 2.8em;
+            text-align: center;
+        }
+
+        .service-list {
+            background: linear-gradient(45deg, #e1e6f0, #f4f7fa);
+            padding: 3em 0;
+        }
+
+        .service-list ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .service-list li {
+            background-color: #e0e0e0;
+            margin: 15px;
+            padding: 25px;
+            border-radius: 10px;
+            flex: 1 1 30%;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .service-list li:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-list li i {
+            font-size: 2.5em;
+            color: #007BFF;
+            margin-bottom: 10px;
+        }
+
+        .service-list li p {
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .clients-section, .projects-section, .faq-section, .newsletter-section {
+            padding: 3em 1em;
+            text-align: center;
+            background: #f4f7fa;
+        }
+
+        .clients-section h2, .projects-section h2, .faq-section h2, .newsletter-section h2 {
+            color: #007BFF;
+            margin-bottom: 1.5em;
+            font-size: 2.5em;
+        }
+
+        .clients-logos, .projects-gallery, .faq-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .clients-logos img, .projects-gallery img {
+            width: 150px;
+            height: 100px;
+            object-fit: contain;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .clients-logos img:hover, .projects-gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: auto;
+            text-align: left;
+        }
+
+        .faq-list .faq-item {
+            background-color: #e0e0e0;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-list .faq-item h3 {
+            margin: 0;
+            font-size: 1.4em;
+        }
+
+        .faq-list .faq-item p {
+            margin: 10px 0 0 0;
+            font-size: 1.1em;
+        }
+
+        .newsletter-form {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .newsletter-form input[type="email"] {
+            padding: 10px;
+            width: 70%;
             border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .newsletter-form button {
+            padding: 10px 20px;
+            background-color: #007BFF;
             color: white;
-            font-size: 20px;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .contact-btn {
+            background-color: #007BFF;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 2em;
+            display: inline-block;
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .contact-btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 15px;
+            font-size: 1.5em;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #007BFF;
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
+        }
+
+        footer {
+            background-color: #007BFF;
+            color: white;
+            padding: 1.5em 0;
+            text-align: center;
         }
 
         .back-to-top {
@@ -66,179 +270,207 @@
             right: 20px;
             background-color: #007BFF;
             color: white;
-            border-radius: 50%;
             padding: 15px;
-            cursor: pointer;
+            border-radius: 50%;
+            font-size: 2em;
             display: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
         .back-to-top:hover {
             background-color: #0056b3;
         }
 
-        #main-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            padding: 20px;
-        }
-
-        .section {
-            background-color: white;
-            padding: 20px;
-            margin: 10px;
-            flex-basis: 45%;
-        }
-
-        button {
+        .contact-popup {
+            display: none;
+            position: fixed;
+            top: 20%;
+            right: 20px;
             background-color: #007BFF;
             color: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-popup h3 {
+            margin: 0;
+        }
+
+        .contact-popup button {
+            background-color: #0056b3;
             border: none;
-            padding: 10px 20px;
+            color: white;
+            padding: 10px;
             cursor: pointer;
             border-radius: 5px;
-            transition: background-color 0.3s ease;
         }
 
-        button:hover {
-            background-color: #0056b3;
+        .contact-popup button:hover {
+            background-color: #003d7a;
         }
 
-        input[type="text"], input[type="email"], textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
-            border-color: #007BFF;
-            outline: none;
-        }
-
-        .testimonial {
+        .calc-container {
             background-color: #e0e0e0;
-            padding: 15px;
-            margin: 10px;
+            padding: 3em 1em;
+            text-align: center;
+            margin-top: 2em;
         }
 
-        .testimonial p {
-            font-style: italic;
+        .calc-container input[type="number"] {
+            padding: 10px;
+            width: 70%;
+            margin-bottom: 1em;
+            border-radius: 5px;
+            border: none;
         }
 
-        @media screen and (max-width: 768px) {
-            .section {
-                flex-basis: 100%;
-            }
+        .calc-container button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
         }
 
-        html {
-            scroll-behavior: smooth;
+        .calc-container button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-
-    <!-- شريط الإعلانات -->
-    <div class="ad-bar">
-        <p>احصل على خصم 20% عند استخدام الكود NEW20!</p>
-        <button onclick="this.parentElement.style.display='none'">إغلاق</button>
+    <div id="loader">
+        <img src="https://example.com/loader.gif" alt="Loading...">
     </div>
 
-    <!-- شريط التنقل -->
+    <header>
+        <h1>شركة HM للتسويق الإلكتروني</h1>
+        <p>تحسين محركات البحث، التسويق بالمحتوى، والإعلانات الممولة</p>
+    </header>
+
     <nav>
-        <a href="#home">الرئيسية</a>
-        <a href="#services">الخدمات</a>
-        <a href="#consultation">استشارة</a>
-        <a href="#testimonials">آراء العملاء</a>
+        <a href="#services">خدماتنا</a>
+        <a href="#clients">عملاؤنا</a>
+        <a href="#projects">المشاريع</a>
+        <a href="#blog">المدونة</a>
+        <a href="#faq">الأسئلة الشائعة</a>
+        <a href="#newsletter">النشرة البريدية</a>
         <a href="#contact">اتصل بنا</a>
     </nav>
 
-    <!-- قسم الاستشارة -->
-    <section id="consultation" class="section">
-        <h2>احجز استشارتك المجانية</h2>
-        <form action="submit_form.php" method="POST">
-            <input type="text" name="name" placeholder="الاسم" required>
-            <input type="email" name="email" placeholder="البريد الإلكتروني" required>
-            <textarea name="message" placeholder="اكتب سؤالك هنا..." required></textarea>
-            <button type="submit">حجز استشارة</button>
-        </form>
-    </section>
+    <main>
+        <div class="content">
+            <section id="services" class="service-list fade-in">
+                <h2 class="slide-in">خدماتنا</h2>
+                <ul>
+                    <li><i class="fas fa-chart-line"></i> تحسين محركات البحث (SEO)</li>
+                    <li><i class="fas fa-bullhorn"></i> استراتيجيات تسويق المحتوى</li>
+                    <li><i class="fas fa-envelope"></i> حملات البريد الإلكتروني</li>
+                    <li><i class="fas fa-laptop"></i> تصميم وتطوير المواقع</li>
+                </ul>
+            </section>
 
-    <!-- قسم شهادة العملاء -->
-    <section id="testimonials" class="section">
-        <h2>آراء العملاء</h2>
-        <div class="testimonial">
-            <p>"خدمة رائعة، فريق محترف ساعدنا على تحسين محركات البحث وزيادة مبيعاتنا!"</p>
-            <p>- أحمد علي</p>
+            <section id="clients" class="clients-section fade-in">
+                <h2 class="slide-in">عملاؤنا</h2>
+                <div class="clients-logos">
+                    <img src="https://example.com/client1-logo.png" alt="Client 1 Logo">
+                    <img src="https://example.com/client2-logo.png" alt="Client 2 Logo">
+                    <img src="https://example.com/client3-logo.png" alt="Client 3 Logo">
+                    <img src="https://example.com/client4-logo.png" alt="Client 4 Logo">
+                </div>
+            </section>
+
+            <section id="projects" class="projects-section fade-in">
+                <h2 class="slide-in">المشاريع الأخيرة</h2>
+                <div class="projects-gallery">
+                    <img src="https://example.com/project1.jpg" alt="Project 1">
+                    <img src="https://example.com/project2.jpg" alt="Project 2">
+                    <img src="https://example.com/project3.jpg" alt="Project 3">
+                    <img src="https://example.com/project4.jpg" alt="Project 4">
+                </div>
+            </section>
+
+            <section id="blog" class="fade-in">
+                <h2 class="slide-in">المدونة</h2>
+                <p>تابع آخر أخبار التسويق الإلكتروني ونصائحنا الحصرية لتحسين أداء أعمالك على الإنترنت.</p>
+            </section>
+
+            <section id="faq" class="faq-section fade-in">
+                <h2 class="slide-in">الأسئلة الشائعة</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <h3>ما هي خدماتكم الرئيسية؟</h3>
+                        <p>نحن نقدم خدمات تحسين محركات البحث، استراتيجيات تسويق المحتوى، حملات البريد الإلكتروني، وتصميم وتطوير المواقع.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>كيف يمكنني البدء في استخدام خدماتكم؟</h3>
+                        <p>يمكنك الاتصال بنا عبر البريد الإلكتروني أو النموذج الموجود في قسم "اتصل بنا" للحصول على استشارة مجانية.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>ما هي تكلفة خدماتكم؟</h3>
+                        <p>تختلف تكلفة خدماتنا بناءً على نوع الخدمة ومتطلبات العميل. يرجى الاتصال بنا للحصول على عرض سعر مخصص.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="newsletter" class="newsletter-section fade-in">
+                <h2 class="slide-in">النشرة البريدية</h2>
+                <p>اشترك في نشرتنا البريدية لتصلك آخر الأخبار والعروض الخاصة بنا.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="أدخل بريدك الإلكتروني">
+                    <button type="submit">اشترك</button>
+                </form>
+            </section>
+
+            <section id="contact" class="fade-in">
+                <h2 class="slide-in">اتصل بنا</h2>
+                <p>هل لديك سؤال أو استفسار؟ لا تتردد في الاتصال بنا عبر البريد الإلكتروني: <a href="mailto:hamdaouimokrane@gmail.com">hamdaouimokrane@gmail.com</a></p>
+                <a href="mailto:hamdaouimokrane@gmail.com" class="contact-btn">تواصل معنا</a>
+            </section>
+
+            <section class="calc-container fade-in">
+                <h2 class="slide-in">احسب تكلفة حملتك الإعلانية</h2>
+                <form>
+                    <input type="number" id="campaign-budget" placeholder="أدخل ميزانيتك الإعلانية" min="0">
+                    <button type="button" onclick="calculateCost()">احسب</button>
+                    <p id="calculated-cost" style="font-size: 1.5em; margin-top: 10px;"></p>
+                </form>
+            </section>
         </div>
-        <div class="testimonial">
-            <p>"تجربة مدهشة! أنصح بها جميع أصحاب الأعمال."</p>
-            <p>- سارة محمود</p>
-        </div>
-    </section>
-
-    <!-- حاسبة العائد على الاستثمار -->
-    <section id="roi-calculator" class="section">
-        <h2>حاسبة العائد على الاستثمار (ROI)</h2>
-        <form>
-            <label for="investment">مقدار الاستثمار (بالدولار):</label>
-            <input type="number" id="investment" name="investment"><br><br>
-
-            <label for="revenue">الإيرادات المتوقعة (بالدولار):</label>
-            <input type="number" id="revenue" name="revenue"><br><br>
-
-            <button type="button" onclick="calculateROI()">احسب العائد</button>
-        </form>
-        <p id="result"></p>
-    </section>
+    </main>
 
     <footer>
-        <p>حقوق الطبع والنشر &copy; 2024 شركة HM للتسويق الإلكتروني</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p>&copy; 2024 شركة HM للتسويق الإلكتروني. جميع الحقوق محفوظة.</p>
     </footer>
 
-    <!-- زر العودة للأعلى -->
-    <div class="back-to-top" onclick="scrollToTop()">↑</div>
+    <div class="back-to-top" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </div>
 
     <script>
-        function calculateROI() {
-            const investment = document.getElementById('investment').value;
-            const revenue = document.getElementById('revenue').value;
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('loader').style.display = 'none';
+        });
 
-            if (investment && revenue) {
-                const roi = ((revenue - investment) / investment) * 100;
-                document.getElementById('result').innerText = `العائد على الاستثمار: ${roi}%`;
-            } else {
-                document.getElementById('result').innerText = 'يرجى إدخال القيم بشكل صحيح';
-            }
-        }
-
-        // إظهار زر العودة للأعلى
-        window.onscroll = function() {
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                document.querySelector(".back-to-top").style.display = "block";
-            } else {
-                document.querySelector(".back-to-top").style.display = "none";
-            }
-        };
-
-        // الرجوع للأعلى عند الضغط على الزر
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // تغيير الخلفية بناءً على الوقت
-        function changeBackground() {
-            const hour = new Date().getHours();
-            if (hour >= 6 && hour < 18) {
-                document.body.style.backgroundImage = "url('day-bg.jpg')";
-            } else {
-                document.body.style.backgroundImage = "url('night-bg.jpg')";
-            }
+        function calculateCost() {
+            let budget = document.getElementById("campaign-budget").value;
+            let cost = budget * 0.1;  // افتراض أن 10% من الميزانية تذهب للإعلانات
+            document.getElementById("calculated-cost").textContent = "تكلفة الحملة الإعلانية تقريباً: " + cost + " دولار.";
         }
-        setInterval(changeBackground, 1000);
     </script>
-
 </body>
 </html>

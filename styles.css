@@ -1,0 +1,25 @@
+body {
+    direction: rtl;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+main {
+    padding: 2em 0;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+table {
+    margin-bottom: 30px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

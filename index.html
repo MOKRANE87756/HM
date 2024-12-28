@@ -1,155 +1,137 @@
-pip install flask
-from flask import Flask, render_template_string
-
-app = Flask(__name__)
-
-# CSS styles
-styles = """
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-}
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem 0;
-    text-align: center;
-}
-header h1 {
-    margin: 0;
-}
-nav ul {
-    list-style: none;
-    padding: 0;
-}
-nav ul li {
-    display: inline;
-    margin: 0 1rem;
-}
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-main {
-    padding: 2rem;
-}
-.hero {
-    background-color: #f8f8f8;
-    padding: 2rem;
-    text-align: center;
-}
-.hero h2 {
-    margin-top: 0;
-}
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-"""
-
-# HTML templates
-base_template = """
 <!DOCTYPE html>
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }}</title>
-    <style>{{ styles }}</style>
+    <title>موقع كرة القدم</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>مرحبا بكم في موقع كرة القدم</h1>
+        <h1>موقع كرة القدم</h1>
         <nav>
             <ul>
-                <li><a href="/">الرئيسية</a></li>
-                <li><a href="/news">الأخبار</a></li>
-                <li><a href="/matches">المباريات</a></li>
-                <li><a href="/players">اللاعبين</a></li>
-                <li><a href="/contact">اتصل بنا</a></li>
+                <li><a href="#teams">الفرق</a></li>
+                <li><a href="#matches">المباريات</a></li>
+                <li><a href="#news">الأخبار</a></li>
             </ul>
         </nav>
     </header>
+    
     <main>
-        {% block content %}{% endblock %}
+        <section id="teams">
+            <h2>الفرق</h2>
+            <ul>
+                <li>فريق 1</li>
+                <li>فريق 2</li>
+                <li>فريق 3</li>
+                <li>فريق 4</li>
+            </ul>
+        </section>
+        
+        <section id="matches">
+            <h2>جدول المباريات</h2>
+            <table>
+                <tr>
+                    <th>الفريق الأول</th>
+                    <th>الفريق الثاني</th>
+                    <th>التاريخ</th>
+                </tr>
+                <tr>
+                    <td>فريق 1</td>
+                    <td>فريق 2</td>
+                    <td>20/01/2024</td>
+                </tr>
+                <tr>
+                    <td>فريق 3</td>
+                    <td>فريق 4</td>
+                    <td>21/01/2024</td>
+                </tr>
+            </table>
+        </section>
+        
+        <section id="news">
+            <h2>آخر الأخبار</h2>
+            <article>
+                <h3>عنوان الخبر الأول</h3>
+                <p>نص مختصر للخبر الأول...</p>
+            </article>
+            <article>
+                <h3>عنوان الخبر الثاني</h3>
+                <p>نص مختصر للخبر الثاني...</p>
+            </article>
+        </section>
     </main>
+    
     <footer>
         <p>&copy; 2024 موقع كرة القدم. جميع الحقوق محفوظة.</p>
     </footer>
+    
+    <script src="scripts.js"></script>
 </body>
 </html>
-"""
+body {
+    font-family: Arial, sans-serif;
+    direction: rtl;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
 
-home_template = """
-{% extends "base_template" %}
-{% block content %}
-<section class="hero">
-    <h2>أحدث أخبار كرة القدم</h2>
-    <p>ابق على اطلاع بآخر أخبار ومباريات كرة القدم من جميع أنحاء العالم.</p>
-</section>
-{% endblock %}
-"""
+header {
+    background-color: #333;
+    color: white;
+    padding: 1em 0;
+    text-align: center;
+}
 
-news_template = """
-{% extends "base_template" %}
-{% block content %}
-<h2>آخر الأخبار</h2>
-<p>هنا يمكنك قراءة آخر أخبار كرة القدم.</p>
-{% endblock %}
-"""
+nav ul {
+    list-style: none;
+    padding: 0;
+}
 
-matches_template = """
-{% extends "base_template" %}
-{% block content %}
-<h2>جدول المباريات</h2>
-<p>هنا يمكنك مشاهدة جدول المباريات القادمة.</p>
-{% endblock %}
-"""
+nav ul li {
+    display: inline;
+    margin: 0 1em;
+}
 
-players_template = """
-{% extends "base_template" %}
-{% block content %}
-<h2>قائمة اللاعبين</h2>
-<p>هنا يمكنك مشاهدة قائمة اللاعبين.</p>
-{% endblock %}
-"""
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
 
-contact_template = """
-{% extends "base_template" %}
-{% block content %}
-<h2>نموذج الاتصال</h2>
-<p>املأ النموذج أدناه للتواصل معنا.</p>
-{% endblock %}
-"""
+main {
+    padding: 2em;
+}
 
-@app.route('/')
-def home():
-    return render_template_string(home_template, title="موقع كرة القدم", styles=styles, base_template=base_template)
+h2 {
+    color: #333;
+}
 
-@app.route('/news')
-def news():
-    return render_template_string(news_template, title="أخبار كرة القدم", styles=styles, base_template=base_template)
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1em 0;
+}
 
-@app.route('/matches')
-def matches():
-    return render_template_string(matches_template, title="مباريات كرة القدم", styles=styles, base_template=base_template)
+table, th, td {
+    border: 1px solid #ddd;
+}
 
-@app.route('/players')
-def players():
-    return render_template_string(players_template, title="اللاعبين", styles=styles, base_template=base_template)
+th, td {
+    padding: 1em;
+    text-align: center;
+}
 
-@app.route('/contact')
-def contact():
-    return render_template_string(contact_template, title="اتصل بنا", styles=styles, base_template=base_template)
-
-if __name__ == '__main__':
-    app.run(debug=True)
-python app.py
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+document.addEventListener("DOMContentLoaded", function() {
+    // يمكنك إضافة أي وظائف جافا سكريبت هنا إذا لزم الأمر
+});

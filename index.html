@@ -4,134 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>موقع كرة القدم</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
+    <header class="bg-dark text-white text-center py-3">
         <h1>موقع كرة القدم</h1>
-        <nav>
-            <ul>
-                <li><a href="#teams">الفرق</a></li>
-                <li><a href="#matches">المباريات</a></li>
-                <li><a href="#news">الأخبار</a></li>
-            </ul>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="#teams">الفرق</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#matches">المباريات</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#news">الأخبار</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
     
-    <main>
+    <main class="container my-4">
         <section id="teams">
-            <h2>الفرق</h2>
-            <ul>
-                <li>فريق 1</li>
-                <li>فريق 2</li>
-                <li>فريق 3</li>
-                <li>فريق 4</li>
-            </ul>
+            <h2 class="text-center">الفرق</h2>
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">فريق 1</h5>
+                            <p class="card-text">وصف مختصر للفريق 1.</p>
+                            <a href="team-details.html" class="btn btn-primary">المزيد</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- يمكنك تكرار نفس الكود للفرق الأخرى -->
+            </div>
         </section>
         
         <section id="matches">
-            <h2>جدول المباريات</h2>
-            <table>
-                <tr>
-                    <th>الفريق الأول</th>
-                    <th>الفريق الثاني</th>
-                    <th>التاريخ</th>
-                </tr>
-                <tr>
-                    <td>فريق 1</td>
-                    <td>فريق 2</td>
-                    <td>20/01/2024</td>
-                </tr>
-                <tr>
-                    <td>فريق 3</td>
-                    <td>فريق 4</td>
-                    <td>21/01/2024</td>
-                </tr>
+            <h2 class="text-center">جدول المباريات</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>الفريق الأول</th>
+                        <th>الفريق الثاني</th>
+                        <th>التاريخ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>فريق 1</td>
+                        <td>فريق 2</td>
+                        <td>20/01/2024</td>
+                    </tr>
+                    <tr>
+                        <td>فريق 3</td>
+                        <td>فريق 4</td>
+                        <td>21/01/2024</td>
+                    </tr>
+                </tbody>
             </table>
         </section>
         
         <section id="news">
-            <h2>آخر الأخبار</h2>
-            <article>
-                <h3>عنوان الخبر الأول</h3>
-                <p>نص مختصر للخبر الأول...</p>
-            </article>
-            <article>
-                <h3>عنوان الخبر الثاني</h3>
-                <p>نص مختصر للخبر الثاني...</p>
-            </article>
+            <h2 class="text-center">آخر الأخبار</h2>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">عنوان الخبر الأول</h5>
+                    <p class="card-text">نص مختصر للخبر الأول...</p>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">عنوان الخبر الثاني</h5>
+                    <p class="card-text">نص مختصر للخبر الثاني...</p>
+                </div>
+            </div>
         </section>
     </main>
     
-    <footer>
+    <footer class="bg-dark text-white text-center py-3">
         <p>&copy; 2024 موقع كرة القدم. جميع الحقوق محفوظة.</p>
     </footer>
     
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="scripts.js"></script>
 </body>
 </html>
-body {
-    font-family: Arial, sans-serif;
-    direction: rtl;
-    margin: 0;
-    padding: 0;
-    background-color: #f2f2f2;
-}
-
-header {
-    background-color: #333;
-    color: white;
-    padding: 1em 0;
-    text-align: center;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 1em;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-main {
-    padding: 2em;
-}
-
-h2 {
-    color: #333;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1em 0;
-}
-
-table, th, td {
-    border: 1px solid #ddd;
-}
-
-th, td {
-    padding: 1em;
-    text-align: center;
-}
-
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 1em 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-document.addEventListener("DOMContentLoaded", function() {
-    // يمكنك إضافة أي وظائف جافا سكريبت هنا إذا لزم الأمر
-});

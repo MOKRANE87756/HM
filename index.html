@@ -1,476 +1,151 @@
+from flask import Flask, render_template_string
+
+app = Flask(__name__)
+
+# CSS styles
+styles = """
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+header h1 {
+    margin: 0;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+nav ul li {
+    display: inline;
+    margin: 0 1rem;
+}
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+.main {
+    padding: 2rem;
+}
+.hero {
+    background: url('https://example.com/hero-image.jpg') no-repeat center center/cover;
+    color: #fff;
+    padding: 2rem;
+    text-align: center;
+}
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+"""
+
+# HTML templates
+base_template = """
 <!DOCTYPE html>
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شركة HM للتسويق الإلكتروني</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(45deg, #f4f7fa, #e1e6f0);
-            color: #333;
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
-
-        .top-bar {
-            background-color: #007BFF;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-            font-size: 1.1em;
-        }
-
-        #loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-        #loader img {
-            width: 50px;
-        }
-
-        header {
-            background-image: url('https://example.com/header-bg.jpg');
-            background-size: cover;
-            color: white;
-            padding: 6em 0;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
-
-        header h1 {
-            font-size: 3.5em;
-            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        nav {
-            text-align: center;
-            background-color: #333;
-            padding: 1.5em 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        nav a {
-            color: white;
-            margin: 0 20px;
-            text-decoration: none;
-            padding: 12px 25px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-        nav a:hover {
-            background-color: #0056b3;
-            transform: scale(1.1);
-        }
-
-        main {
-            padding: 3em 1em;
-            text-align: center;
-        }
-
-        .content {
-            max-width: 1100px;
-            margin: auto;
-            text-align: left;
-        }
-
-        .content h2 {
-            color: #007BFF;
-            margin-bottom: 1.5em;
-            font-size: 2.8em;
-            text-align: center;
-        }
-
-        .service-list {
-            background: linear-gradient(45deg, #e1e6f0, #f4f7fa);
-            padding: 3em 0;
-        }
-
-        .service-list ul {
-            list-style-type: none;
-            padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
-
-        .service-list li {
-            background-color: #e0e0e0;
-            margin: 15px;
-            padding: 25px;
-            border-radius: 10px;
-            flex: 1 1 30%;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-
-        .service-list li:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .service-list li i {
-            font-size: 2.5em;
-            color: #007BFF;
-            margin-bottom: 10px;
-        }
-
-        .service-list li p {
-            font-size: 1.2em;
-            color: #555;
-        }
-
-        .clients-section, .projects-section, .faq-section, .newsletter-section {
-            padding: 3em 1em;
-            text-align: center;
-            background: #f4f7fa;
-        }
-
-        .clients-section h2, .projects-section h2, .faq-section h2, .newsletter-section h2 {
-            color: #007BFF;
-            margin-bottom: 1.5em;
-            font-size: 2.5em;
-        }
-
-        .clients-logos, .projects-gallery, .faq-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .clients-logos img, .projects-gallery img {
-            width: 150px;
-            height: 100px;
-            object-fit: contain;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .clients-logos img:hover, .projects-gallery img:hover {
-            transform: scale(1.1);
-        }
-
-        .faq-list {
-            max-width: 800px;
-            margin: auto;
-            text-align: left;
-        }
-
-        .faq-list .faq-item {
-            background-color: #e0e0e0;
-            padding: 20px;
-            margin: 10px 0;
-            border-radius: 10px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .faq-list .faq-item h3 {
-            margin: 0;
-            font-size: 1.4em;
-        }
-
-        .faq-list .faq-item p {
-            margin: 10px 0 0 0;
-            font-size: 1.1em;
-        }
-
-        .newsletter-form {
-            max-width: 600px;
-            margin: auto;
-        }
-
-        .newsletter-form input[type="email"] {
-            padding: 10px;
-            width: 70%;
-            border: none;
-            border-radius: 5px;
-            margin-right: 10px;
-        }
-
-        .newsletter-form button {
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .newsletter-form button:hover {
-            background-color: #0056b3;
-        }
-
-        .contact-btn {
-            background-color: #007BFF;
-            color: white;
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 2em;
-            display: inline-block;
-            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
-        }
-
-        .contact-btn:hover {
-            background-color: #0056b3;
-            transform: scale(1.05);
-        }
-
-        .social-links a {
-            color: white;
-            margin: 0 15px;
-            font-size: 1.5em;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: #007BFF;
-        }
-
-        .fade-in {
-            opacity: 0;
-            animation: fadeIn 1.5s forwards;
-        }
-
-        footer {
-            background-color: #007BFF;
-            color: white;
-            padding: 1.5em 0;
-            text-align: center;
-        }
-
-        .back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #007BFF;
-            color: white;
-            padding: 15px;
-            border-radius: 50%;
-            font-size: 2em;
-            display: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .back-to-top:hover {
-            background-color: #0056b3;
-        }
-
-        .contact-popup {
-            display: none;
-            position: fixed;
-            top: 20%;
-            right: 20px;
-            background-color: #007BFF;
-            color: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-        }
-
-        .contact-popup h3 {
-            margin: 0;
-        }
-
-        .contact-popup button {
-            background-color: #0056b3;
-            border: none;
-            color: white;
-            padding: 10px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .contact-popup button:hover {
-            background-color: #003d7a;
-        }
-
-        .calc-container {
-            background-color: #e0e0e0;
-            padding: 3em 1em;
-            text-align: center;
-            margin-top: 2em;
-        }
-
-        .calc-container input[type="number"] {
-            padding: 10px;
-            width: 70%;
-            margin-bottom: 1em;
-            border-radius: 5px;
-            border: none;
-        }
-
-        .calc-container button {
-            background-color: #007BFF;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .calc-container button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <title>{{ title }}</title>
+    <style>{{ styles }}</style>
 </head>
 <body>
-    <div id="loader">
-        <img src="https://example.com/loader.gif" alt="Loading...">
-    </div>
-
     <header>
-        <h1>شركة HM للتسويق الإلكتروني</h1>
-        <p>تحسين محركات البحث، التسويق بالمحتوى، والإعلانات الممولة</p>
+        <h1>مرحبا بكم في موقع كرة القدم</h1>
+        <nav>
+            <ul>
+                <li><a href="/">الرئيسية</a></li>
+                <li><a href="/news">الأخبار</a></li>
+                <li><a href="/matches">المباريات</a></li>
+                <li><a href="/players">اللاعبين</a></li>
+                <li><a href="/contact">اتصل بنا</a></li>
+            </ul>
+        </nav>
     </header>
-
-    <nav>
-        <a href="#services">خدماتنا</a>
-        <a href="#clients">عملاؤنا</a>
-        <a href="#projects">المشاريع</a>
-        <a href="#blog">المدونة</a>
-        <a href="#faq">الأسئلة الشائعة</a>
-        <a href="#newsletter">النشرة البريدية</a>
-        <a href="#contact">اتصل بنا</a>
-    </nav>
-
     <main>
-        <div class="content">
-            <section id="services" class="service-list fade-in">
-                <h2 class="slide-in">خدماتنا</h2>
-                <ul>
-                    <li><i class="fas fa-chart-line"></i> تحسين محركات البحث (SEO)</li>
-                    <li><i class="fas fa-bullhorn"></i> استراتيجيات تسويق المحتوى</li>
-                    <li><i class="fas fa-envelope"></i> حملات البريد الإلكتروني</li>
-                    <li><i class="fas fa-laptop"></i> تصميم وتطوير المواقع</li>
-                </ul>
-            </section>
-
-            <section id="clients" class="clients-section fade-in">
-                <h2 class="slide-in">عملاؤنا</h2>
-                <div class="clients-logos">
-                    <img src="https://example.com/client1-logo.png" alt="Client 1 Logo">
-                    <img src="https://example.com/client2-logo.png" alt="Client 2 Logo">
-                    <img src="https://example.com/client3-logo.png" alt="Client 3 Logo">
-                    <img src="https://example.com/client4-logo.png" alt="Client 4 Logo">
-                </div>
-            </section>
-
-            <section id="projects" class="projects-section fade-in">
-                <h2 class="slide-in">المشاريع الأخيرة</h2>
-                <div class="projects-gallery">
-                    <img src="https://example.com/project1.jpg" alt="Project 1">
-                    <img src="https://example.com/project2.jpg" alt="Project 2">
-                    <img src="https://example.com/project3.jpg" alt="Project 3">
-                    <img src="https://example.com/project4.jpg" alt="Project 4">
-                </div>
-            </section>
-
-            <section id="blog" class="fade-in">
-                <h2 class="slide-in">المدونة</h2>
-                <p>تابع آخر أخبار التسويق الإلكتروني ونصائحنا الحصرية لتحسين أداء أعمالك على الإنترنت.</p>
-            </section>
-
-            <section id="faq" class="faq-section fade-in">
-                <h2 class="slide-in">الأسئلة الشائعة</h2>
-                <div class="faq-list">
-                    <div class="faq-item">
-                        <h3>ما هي خدماتكم الرئيسية؟</h3>
-                        <p>نحن نقدم خدمات تحسين محركات البحث، استراتيجيات تسويق المحتوى، حملات البريد الإلكتروني، وتصميم وتطوير المواقع.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>كيف يمكنني البدء في استخدام خدماتكم؟</h3>
-                        <p>يمكنك الاتصال بنا عبر البريد الإلكتروني أو النموذج الموجود في قسم "اتصل بنا" للحصول على استشارة مجانية.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>ما هي تكلفة خدماتكم؟</h3>
-                        <p>تختلف تكلفة خدماتنا بناءً على نوع الخدمة ومتطلبات العميل. يرجى الاتصال بنا للحصول على عرض سعر مخصص.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="newsletter" class="newsletter-section fade-in">
-                <h2 class="slide-in">النشرة البريدية</h2>
-                <p>اشترك في نشرتنا البريدية لتصلك آخر الأخبار والعروض الخاصة بنا.</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="أدخل بريدك الإلكتروني">
-                    <button type="submit">اشترك</button>
-                </form>
-            </section>
-
-            <section id="contact" class="fade-in">
-                <h2 class="slide-in">اتصل بنا</h2>
-                <p>هل لديك سؤال أو استفسار؟ لا تتردد في الاتصال بنا عبر البريد الإلكتروني: <a href="mailto:hamdaouimokrane@gmail.com">hamdaouimokrane@gmail.com</a></p>
-                <a href="mailto:hamdaouimokrane@gmail.com" class="contact-btn">تواصل معنا</a>
-            </section>
-
-            <section class="calc-container fade-in">
-                <h2 class="slide-in">احسب تكلفة حملتك الإعلانية</h2>
-                <form>
-                    <input type="number" id="campaign-budget" placeholder="أدخل ميزانيتك الإعلانية" min="0">
-                    <button type="button" onclick="calculateCost()">احسب</button>
-                    <p id="calculated-cost" style="font-size: 1.5em; margin-top: 10px;"></p>
-                </form>
-            </section>
-        </div>
+        {% block content %}{% endblock %}
     </main>
-
     <footer>
-        <div class="social-links">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-        </div>
-        <p>&copy; 2024 شركة HM للتسويق الإلكتروني. جميع الحقوق محفوظة.</p>
+        <p>&copy; 2024 موقع كرة القدم. جميع الحقوق محفوظة.</p>
     </footer>
-
-    <div class="back-to-top" onclick="scrollToTop()">
-        <i class="fas fa-arrow-up"></i>
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('loader').style.display = 'none';
-        });
-
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function calculateCost() {
-            let budget = document.getElementById("campaign-budget").value;
-            let cost = budget * 0.1;  // افتراض أن 10% من الميزانية تذهب للإعلانات
-            document.getElementById("calculated-cost").textContent = "تكلفة الحملة الإعلانية تقريباً: " + cost + " دولار.";
-        }
-    </script>
 </body>
 </html>
+"""
+
+home_template = """
+{% extends "base_template" %}
+{% block content %}
+<section class="hero">
+    <h2>أحدث أخبار كرة القدم</h2>
+    <p>ابق على اطلاع بآخر أخبار ومباريات كرة القدم من جميع أنحاء العالم.</p>
+</section>
+{% endblock %}
+"""
+
+news_template = """
+{% extends "base_template" %}
+{% block content %}
+<h2>آخر الأخبار</h2>
+<p>هنا يمكنك قراءة آخر أخبار كرة القدم.</p>
+{% endblock %}
+"""
+
+matches_template = """
+{% extends "base_template" %}
+{% block content %}
+<h2>جدول المباريات</h2>
+<p>هنا يمكنك مشاهدة جدول المباريات القادمة.</p>
+{% endblock %}
+"""
+
+players_template = """
+{% extends "base_template" %}
+{% block content %}
+<h2>قائمة اللاعبين</h2>
+<p>هنا يمكنك مشاهدة قائمة اللاعبين.</p>
+{% endblock %}
+"""
+
+contact_template = """
+{% extends "base_template" %}
+{% block content %}
+<h2>نموذج الاتصال</h2>
+<p>املأ النموذج أدناه للتواصل معنا.</p>
+{% endblock %}
+"""
+
+@app.route('/')
+def home():
+    return render_template_string(home_template, title="موقع كرة القدم", styles=styles, base_template=base_template)
+
+@app.route('/news')
+def news():
+    return render_template_string(news_template, title="أخبار كرة القدم", styles=styles, base_template=base_template)
+
+@app.route('/matches')
+def matches():
+    return render_template_string(matches_template, title="مباريات كرة القدم", styles=styles, base_template=base_template)
+
+@app.route('/players')
+def players():
+    return render_template_string(players_template, title="اللاعبين", styles=styles, base_template=base_template)
+
+@app.route('/contact')
+def contact():
+    return render_template_string(contact_template, title="اتصل بنا", styles=styles, base_template=base_template)
+
+if __name__ == '__main__':
+    app.run(debug=True)

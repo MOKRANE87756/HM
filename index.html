@@ -5,33 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>موقع كرة القدم</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJ03v3zGFNHR6X4m6ffvLMhpEYIZpihn0K4kz0GTV0I9J09nK8r81z0F8wa2" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Almarai&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="bg-dark text-white text-center py-3">
-        <h1>موقع كرة القدم</h1>
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <div class="container">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link" href="#teams">الفرق</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#matches">المباريات</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#news">الأخبار</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">تواصل معنا</a></li>
-                    <li class="nav-item">
-                        <button class="btn btn-outline-light" id="loginButton">تسجيل الدخول</button>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+    <header class="bg-gradient py-5">
+        <div class="container text-center text-white">
+            <h1 class="display-4 fw-bold">موقع كرة القدم</h1>
+            <p class="lead mb-4">كل ما تحتاج معرفته عن كرة القدم: فرق، مباريات، أخبار</p>
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a class="nav-link" href="#teams">الفرق</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#matches">المباريات</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#news">الأخبار</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">تواصل معنا</a></li>
+                        <li class="nav-item">
+                            <button class="btn btn-outline-light" id="loginButton">تسجيل الدخول</button>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
     </header>
-    
-    <main class="container my-4">
+
+    <main class="container my-5">
         <!-- قسم الفرق -->
         <section id="teams">
-            <h2 class="text-center">الفرق</h2>
+            <h2 class="text-center text-primary mb-4">الفرق</h2>
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <div class="col">
-                    <div class="card">
+                    <div class="card shadow rounded">
                         <img src="team1.jpg" class="card-img-top" alt="فريق 1">
                         <div class="card-body">
                             <h5 class="card-title">فريق 1</h5>
@@ -46,10 +50,10 @@
         
         <!-- قسم المباريات -->
         <section id="matches" class="mt-5">
-            <h2 class="text-center">جدول المباريات</h2>
-            <input class="form-control mb-3" id="matchSearch" type="text" placeholder="ابحث عن مباراة...">
-            <table class="table table-striped">
-                <thead>
+            <h2 class="text-center text-primary mb-4">جدول المباريات</h2>
+            <input class="form-control mb-3" id="matchSearch" type="text" placeholder="ابحث عن مباراة..." aria-label="بحث">
+            <table class="table table-striped table-hover">
+                <thead class="table-dark">
                     <tr>
                         <th>الفريق الأول</th>
                         <th>الفريق الثاني</th>
@@ -73,15 +77,15 @@
         
         <!-- قسم الأخبار -->
         <section id="news" class="mt-5">
-            <h2 class="text-center">آخر الأخبار</h2>
-            <div class="card mb-3">
+            <h2 class="text-center text-primary mb-4">آخر الأخبار</h2>
+            <div class="card mb-3 shadow-sm border-0">
                 <div class="card-body">
                     <h5 class="card-title">عنوان الخبر الأول</h5>
                     <p class="card-text">نص مختصر للخبر الأول...</p>
                     <a href="#" class="btn btn-success">اقرأ المزيد</a>
                 </div>
             </div>
-            <div class="card mb-3">
+            <div class="card mb-3 shadow-sm border-0">
                 <div class="card-body">
                     <h5 class="card-title">عنوان الخبر الثاني</h5>
                     <p class="card-text">نص مختصر للخبر الثاني...</p>
@@ -92,7 +96,7 @@
         
         <!-- قسم تواصل معنا -->
         <section id="contact" class="mt-5">
-            <h2 class="text-center">تواصل معنا</h2>
+            <h2 class="text-center text-primary mb-4">تواصل معنا</h2>
             <form>
                 <div class="mb-3">
                     <label for="name" class="form-label">الاسم</label>
@@ -112,7 +116,7 @@
     </main>
     
     <!-- الفوتر -->
-    <footer class="bg-dark text-white text-center py-3">
+    <footer class="bg-dark text-white text-center py-4">
         <p>&copy; 2024 موقع كرة القدم. جميع الحقوق محفوظة.</p>
     </footer>
     

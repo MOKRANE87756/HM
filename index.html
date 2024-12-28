@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>موقع كرة القدم</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJ03v3zGFNHR6X4m6ffvLMhpEYIZpihn0K4kz0GTV0I9J09nK8r81z0F8wa2" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,6 +16,10 @@
                     <li class="nav-item"><a class="nav-link" href="#teams">الفرق</a></li>
                     <li class="nav-item"><a class="nav-link" href="#matches">المباريات</a></li>
                     <li class="nav-item"><a class="nav-link" href="#news">الأخبار</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">تواصل معنا</a></li>
+                    <li class="nav-item">
+                        <button class="btn btn-outline-light" id="loginButton">تسجيل الدخول</button>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -24,9 +28,10 @@
     <main class="container my-4">
         <section id="teams">
             <h2 class="text-center">الفرق</h2>
-            <div class="row">
-                <div class="col-md-3 mb-3">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
                     <div class="card">
+                        <img src="team1.jpg" class="card-img-top" alt="فريق 1">
                         <div class="card-body">
                             <h5 class="card-title">فريق 1</h5>
                             <p class="card-text">وصف مختصر للفريق 1.</p>
@@ -38,8 +43,9 @@
             </div>
         </section>
         
-        <section id="matches">
+        <section id="matches" class="mt-5">
             <h2 class="text-center">جدول المباريات</h2>
+            <input class="form-control mb-3" id="matchSearch" type="text" placeholder="ابحث عن مباراة...">
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -48,7 +54,7 @@
                         <th>التاريخ</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="matchesList">
                     <tr>
                         <td>فريق 1</td>
                         <td>فريق 2</td>
@@ -63,20 +69,41 @@
             </table>
         </section>
         
-        <section id="news">
+        <section id="news" class="mt-5">
             <h2 class="text-center">آخر الأخبار</h2>
             <div class="card mb-3">
                 <div class="card-body">
                     <h5 class="card-title">عنوان الخبر الأول</h5>
                     <p class="card-text">نص مختصر للخبر الأول...</p>
+                    <a href="#" class="btn btn-success">اقرأ المزيد</a>
                 </div>
             </div>
             <div class="card mb-3">
                 <div class="card-body">
                     <h5 class="card-title">عنوان الخبر الثاني</h5>
                     <p class="card-text">نص مختصر للخبر الثاني...</p>
+                    <a href="#" class="btn btn-success">اقرأ المزيد</a>
                 </div>
             </div>
+        </section>
+        
+        <section id="contact" class="mt-5">
+            <h2 class="text-center">تواصل معنا</h2>
+            <form>
+                <div class="mb-3">
+                    <label for="name" class="form-label">الاسم</label>
+                    <input type="text" class="form-control" id="name" placeholder="أدخل اسمك">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">البريد الإلكتروني</label>
+                    <input type="email" class="form-control" id="email" placeholder="أدخل بريدك الإلكتروني">
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">الرسالة</label>
+                    <textarea class="form-control" id="message" rows="3" placeholder="أدخل رسالتك"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">إرسال</button>
+            </form>
         </section>
     </main>
     
@@ -84,9 +111,8 @@
         <p>&copy; 2024 موقع كرة القدم. جميع الحقوق محفوظة.</p>
     </footer>
     
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
     <script src="scripts.js"></script>
 </body>
 </html>

@@ -14,12 +14,22 @@ h2 {
     margin-bottom: 20px;
 }
 
-table {
-    margin-bottom: 30px;
-}
-
 footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+#matchSearch {
+    width: 50%;
+    margin: 0 auto 20px;
+}
+
+#contact form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.card-body {
+    background-color: #f9f9f9;
 }

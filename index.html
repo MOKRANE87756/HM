@@ -13,6 +13,34 @@
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       border-radius: 8px;
       margin-bottom: 20px;
+      transition: transform 0.2s ease-in-out;
+    }
+    .product-card:hover {
+      transform: scale(1.03);
+    }
+    .special-offer {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: red;
+      color: white;
+      padding: 2px 8px;
+      font-size: 12px;
+      border-radius: 4px;
+    }
+    .cart {
+      position: relative;
+      cursor: pointer;
+    }
+    .cart-badge {
+      position: absolute;
+      top: -5px;
+      right: -10px;
+      background: red;
+      color: white;
+      border-radius: 50%;
+      padding: 4px 8px;
+      font-size: 12px;
     }
   </style>
 </head>
@@ -21,10 +49,24 @@
     <div class="container d-flex justify-content-between">
       <h1>My Shop</h1>
       <nav>
-        <a href="#" class="text-white">Cart</a>
+        <a href="#" class="text-white me-3">Home</a>
+        <a href="#" class="text-white me-3">Products</a>
+        <a href="#" class="cart text-white">Cart <span id="cart-count" class="cart-badge">0</span></a>
       </nav>
     </div>
   </header>
+
+  <section class="bg-light py-3">
+    <div class="container">
+      <h2>Filter Products</h2>
+      <div class="d-flex gap-3">
+        <button class="btn btn-outline-primary">All</button>
+        <button class="btn btn-outline-secondary">Electronics</button>
+        <button class="btn btn-outline-success">Clothing</button>
+        <button class="btn btn-outline-danger">Deals</button>
+      </div>
+    </div>
+  </section>
 
   <main class="container my-5">
     <h2 class="mb-4">Products</h2>

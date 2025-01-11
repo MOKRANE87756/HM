@@ -15,6 +15,7 @@
                 <li><a href="#home">الرئيسية</a></li>
                 <li><a href="#shop">المنتجات</a></li>
                 <li><a href="#contact">اتصل بنا</a></li>
+                <li><a href="#cart" id="cartLink">سلة التسوق</a></li>
             </ul>
         </nav>
     </header>
@@ -22,13 +23,13 @@
     <!-- قسم المنتجات -->
     <section id="shop" class="products">
         <h2>منتجاتنا</h2>
-        <div class="product">
+        <div class="product" data-product="منتج 1">
             <img src="product1.jpg" alt="منتج 1">
             <h3>منتج 1</h3>
             <p>وصف المنتج 1.</p>
             <button onclick="addToCart('منتج 1')">إضافة إلى العربة</button>
         </div>
-        <div class="product">
+        <div class="product" data-product="منتج 2">
             <img src="product2.jpg" alt="منتج 2">
             <h3>منتج 2</h3>
             <p>وصف المنتج 2.</p>

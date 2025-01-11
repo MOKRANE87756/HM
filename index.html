@@ -3,170 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Shopping Site</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <title>Modern Shopping Site</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .header-banner {
-            background: linear-gradient(to right, #ff7e5f, #feb47b);
-            padding: 2rem;
-            text-align: center;
-            color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
-            border-radius: 8px;
-        }
-        .category-section {
-            margin: 2rem 0;
-        }
-        .category-card {
-            border: none;
-            background: #f8f9fa;
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-        .category-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="header-banner">
-        Welcome to My Shopping Site - Find Your Best Deals Here!
-    </div>
-
-    <header class="bg-dark text-white p-3">
-        <div class="container d-flex justify-content-between align-items-center">
-            <h1>My Shop</h1>
-            <div class="input-group w-50">
-                <input type="text" class="form-control" placeholder="Search products..." id="search-bar">
-                <button class="btn btn-primary" onclick="searchProducts()">Search</button>
-            </div>
-            <nav>
-                <a href="#" class="text-white me-3">Home</a>
-                <a href="#" class="text-white me-3">Products</a>
-                <a href="#" class="cart text-white">Cart <span id="cart-count" class="cart-badge">0</span></a>
-            </nav>
-        </div>
+    <header>
+        <div class="logo">MyShop</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
     </header>
-
-    <main class="container my-5">
-        <div class="category-section">
-            <h2 class="mb-4">Shop by Category</h2>
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="card category-card">
-                        <img src="public/electronics.jpg" class="card-img-top" alt="Electronics">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Electronics</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card category-card">
-                        <img src="public/fashion.jpg" class="card-img-top" alt="Fashion">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Fashion</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card category-card">
-                        <img src="public/home.jpg" class="card-img-top" alt="Home">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Home & Furniture</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card category-card">
-                        <img src="public/books.jpg" class="card-img-top" alt="Books">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Books</h5>
-                        </div>
-                    </div>
-                </div>
+    
+    <section class="hero">
+        <h1>Discover Amazing Products</h1>
+        <p>Explore the latest trends at unbeatable prices!</p>
+        <button onclick="window.location.href='#products'">Shop Now</button>
+    </section>
+    
+    <section id="products">
+        <h2>Featured Products</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="images/laptop.jpg" alt="Laptop">
+                <h3>Laptop</h3>
+                <p>$999.99</p>
+                <button>Add to Cart</button>
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card product-card">
-                    <img src="public/laptop.jpg" class="card-img-top" alt="Laptop">
-                    <div class="card-body">
-                        <h5 class="card-title">Laptop</h5>
-                        <p class="card-text">$999.99</p>
-                        <button class="btn btn-success">Add to Cart</button>
-                    </div>
-                </div>
+            <div class="product-card">
+                <img src="images/smartphone.jpg" alt="Smartphone">
+                <h3>Smartphone</h3>
+                <p>$499.99</p>
+                <button>Add to Cart</button>
             </div>
-            <div class="col-md-4">
-                <div class="card product-card">
-                    <img src="public/smartphone.jpg" class="card-img-top" alt="Smartphone">
-                    <div class="card-body">
-                        <h5 class="card-title">Smartphone</h5>
-                        <p class="card-text">$499.99</p>
-                        <button class="btn btn-success">Add to Cart</button>
-                    </div>
-                </div>
+            <div class="product-card">
+                <img src="images/headphones.jpg" alt="Headphones">
+                <h3>Headphones</h3>
+                <p>$199.99</p>
+                <button>Add to Cart</button>
             </div>
-            <div class="col-md-4">
-                <div class="card product-card">
-                    <img src="public/headphones.jpg" class="card-img-top" alt="Headphones">
-                    <div class="card-body">
-                        <h5 class="card-title">Headphones</h5>
-                        <p class="card-text">$199.99</p>
-                        <button class="btn btn-success">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <h2 class="my-5">Recommended Products</h2>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="card">
-                    <img src="public/headphones.jpg" class="card-img-top" alt="Wireless Headphones">
-                    <div class="card-body">
-                        <h5 class="card-title">Wireless Headphones</h5>
-                        <p class="card-text">$150.00</p>
-                        <button class="btn btn-success">View More</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <img src="public/smartwatch.jpg" class="card-img-top" alt="Smartwatch">
-                    <div class="card-body">
-                        <h5 class="card-title">Smartwatch</h5>
-                        <p class="card-text">$250.00</p>
-                        <button class="btn btn-success">View More</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <section class="bg-primary text-white p-4">
-        <div class="container">
-            <h3>Subscribe to our Newsletter</h3>
-            <form class="d-flex">
-                <input type="email" class="form-control me-2" placeholder="Enter your email" required>
-                <button type="submit" class="btn btn-light">Subscribe</button>
-            </form>
         </div>
     </section>
 
-    <footer class="bg-dark text-white text-center py-3">
-        <p>&copy; 2025 My Shop. All Rights Reserved.</p>
-        <div class="social-icons">
-            <a href="#" class="text-white me-3"><i class="fab fa-facebook"></i> Facebook</a>
-            <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i> Twitter</a>
-            <a href="#" class="text-white"><i class="fab fa-instagram"></i> Instagram</a>
-        </div>
+    <footer>
+        <p>&copy; 2025 MyShop. All rights reserved.</p>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>

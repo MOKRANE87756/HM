@@ -1,87 +1,95 @@
-/* تحسينات عامة */
+/* تحسينات جمالية وعصرية */
 body {
-    font-family: 'Cairo', sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     direction: rtl;
-    background: linear-gradient(to right, #ece9e6, #ffffff);
+    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
     color: #333;
     text-align: center;
 }
 
 header {
-    background-color: #4a90e2;
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
     color: white;
-    padding: 20px;
-    border-bottom: 3px solid #007acc;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 25px 0;
+    border-bottom: 5px solid #0056a8;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 header h1 {
-    font-size: 2em;
+    font-size: 2.5em;
     margin: 0;
 }
 
 nav a {
-    margin: 0 15px;
+    margin: 0 20px;
     color: white;
+    font-size: 1.2em;
+    font-weight: bold;
     text-decoration: none;
-    font-size: 1.1em;
-    transition: color 0.3s ease;
+    transition: color 0.4s;
 }
 
 nav a:hover {
     color: #ffdd57;
 }
 
-/* تحسين عرض المنتجات */
+/* تصميم قسم المنتجات */
 #shop {
-    padding: 30px;
+    padding: 40px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .product {
-    background: #ffffff;
-    border: 1px solid #ddd;
+    background: #fff;
+    border: 2px solid #ddd;
     border-radius: 15px;
-    padding: 20px;
-    margin: 15px;
-    width: 280px;
-    display: inline-block;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+    margin: 20px;
+    width: 300px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .product:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05) rotate(1deg);
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+}
+
+.product img {
+    width: 100%;
+    border-radius: 15px 15px 0 0;
 }
 
 .product h3 {
-    font-size: 1.4em;
-    margin-bottom: 10px;
+    font-size: 1.6em;
+    margin: 15px 0 10px;
     color: #333;
 }
 
 .product p {
-    color: #777;
-    margin: 10px 0;
+    font-size: 1em;
+    color: #666;
 }
 
 button {
-    padding: 12px 25px;
-    background: linear-gradient(to right, #32c3ff, #0099ff);
+    padding: 12px 30px;
+    margin: 10px 0;
+    background: linear-gradient(to right, #11998e, #38ef7d);
     color: white;
+    font-size: 1.1em;
     border: none;
-    border-radius: 25px;
-    font-size: 1em;
+    border-radius: 50px;
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background 0.3s, transform 0.1s;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 button:hover {
-    background: linear-gradient(to right, #00b4d8, #0077b6);
-    transform: scale(1.05);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
 button:active {
@@ -90,9 +98,9 @@ button:active {
 
 /* تصميم سلة التسوق */
 #cart {
-    padding: 30px;
-    background: #f9f9f9;
-    border-top: 3px solid #ccc;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-top: 4px solid #0072ff;
 }
 
 #cart ul {
@@ -102,28 +110,27 @@ button:active {
 
 #cart li {
     padding: 15px;
-    margin: 10px 0;
-    background: #fdfdfd;
-    border: 2px dashed #4a90e2;
-    border-radius: 10px;
+    margin: 15px 0;
+    background: rgba(240, 248, 255, 0.9);
+    border-left: 5px solid #4a90e2;
+    border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 #totalPrice {
-    margin-top: 20px;
-    font-size: 1.2em;
+    font-size: 1.5em;
     font-weight: bold;
-    color: #007acc;
+    color: #0072ff;
+    margin-top: 20px;
 }
 
-/* تحسينات استجابة الشاشة */
+/* تحسين الاستجابة للشاشات الصغيرة */
 @media (max-width: 768px) {
     .product {
-        width: 100%;
-        margin: 10px 0;
+        width: 90%;
     }
 
     button {
-        width: 80%;
+        width: 100%;
     }
 }

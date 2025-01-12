@@ -1,40 +1,18 @@
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجري الإلكتروني</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <h1>متجري الإلكتروني</h1>
-        <nav>
-            <a href="#shop">المنتجات</a>
-            <a href="#cart">سلة التسوق</a>
-        </nav>
-    </header>
+<section id="register">
+    <h2>إنشاء حساب كتاجر</h2>
+    <form id="merchantForm">
+        <label for="merchantName">اسم التاجر:</label>
+        <input type="text" id="merchantName" name="merchantName" placeholder="أدخل اسمك" required>
 
-    <section id="shop">
-        <h2>منتجاتنا</h2>
-        <div class="product" data-id="1" data-price="100">
-            <h3>منتج 1</h3>
-            <p>السعر: 100 ريال</p>
-            <button onclick="addToCart(1, 'منتج 1', 100)">إضافة إلى السلة</button>
-        </div>
-        <div class="product" data-id="2" data-price="200">
-            <h3>منتج 2</h3>
-            <p>السعر: 200 ريال</p>
-            <button onclick="addToCart(2, 'منتج 2', 200)">إضافة إلى السلة</button>
-        </div>
-    </section>
+        <label for="merchantEmail">البريد الإلكتروني:</label>
+        <input type="email" id="merchantEmail" name="merchantEmail" placeholder="example@example.com" required>
 
-    <section id="cart">
-        <h2>سلة التسوق</h2>
-        <ul id="cartItems"></ul>
-        <p id="totalPrice">إجمالي السعر: 0 ريال</p>
-    </section>
+        <label for="merchantPassword">كلمة المرور:</label>
+        <input type="password" id="merchantPassword" name="merchantPassword" placeholder="أدخل كلمة المرور" required>
 
-    <script src="scripts.js"></script>
-</body>
-</html>
+        <label for="merchantStoreName">اسم المتجر:</label>
+        <input type="text" id="merchantStoreName" name="merchantStoreName" placeholder="اسم المتجر" required>
+
+        <button type="submit">إنشاء حساب</button>
+    </form>
+</section>

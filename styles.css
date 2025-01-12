@@ -1,22 +1,24 @@
 /* تحسينات عامة */
 body {
-    font-family: 'Tajawal', sans-serif;
+    font-family: 'Cairo', sans-serif;
     margin: 0;
     padding: 0;
     direction: rtl;
-    background-color: #f8f9fa;
+    background: linear-gradient(to right, #ece9e6, #ffffff);
     color: #333;
+    text-align: center;
 }
 
 header {
-    background-color: #343a40;
-    color: #fff;
-    padding: 20px 10px;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #4a90e2;
+    color: white;
+    padding: 20px;
+    border-bottom: 3px solid #007acc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
+    font-size: 2em;
     margin: 0;
 }
 
@@ -24,83 +26,104 @@ nav a {
     margin: 0 15px;
     color: white;
     text-decoration: none;
-    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
 }
 
 nav a:hover {
-    text-decoration: underline;
+    color: #ffdd57;
 }
 
-h2 {
-    margin-top: 30px;
-    color: #007bff;
-}
-
-/* تصميم المنتجات */
+/* تحسين عرض المنتجات */
 #shop {
-    padding: 20px;
+    padding: 30px;
 }
 
 .product {
+    background: #ffffff;
     border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 15px;
+    border-radius: 15px;
+    padding: 20px;
     margin: 15px;
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 280px;
     display: inline-block;
-    width: 250px;
-    text-align: center;
-    transition: transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .product:hover {
-    transform: scale(1.05);
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .product h3 {
+    font-size: 1.4em;
     margin-bottom: 10px;
+    color: #333;
 }
 
 .product p {
-    margin: 5px 0;
+    color: #777;
+    margin: 10px 0;
 }
 
 button {
-    padding: 10px 20px;
-    background-color: #28a745;
+    padding: 12px 25px;
+    background: linear-gradient(to right, #32c3ff, #0099ff);
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
+    font-size: 1em;
     cursor: pointer;
-    transition: background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s, transform 0.1s;
 }
 
 button:hover {
-    background-color: #218838;
+    background: linear-gradient(to right, #00b4d8, #0077b6);
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.98);
 }
 
 /* تصميم سلة التسوق */
 #cart {
-    padding: 20px;
-    border-top: 2px solid #ddd;
-    background-color: #f1f3f5;
+    padding: 30px;
+    background: #f9f9f9;
+    border-top: 3px solid #ccc;
 }
 
 #cart ul {
-    list-style: none;
     padding: 0;
+    list-style: none;
 }
 
 #cart li {
-    padding: 10px;
-    margin: 5px 0;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 15px;
+    margin: 10px 0;
+    background: #fdfdfd;
+    border: 2px dashed #4a90e2;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 #totalPrice {
+    margin-top: 20px;
+    font-size: 1.2em;
     font-weight: bold;
-    margin-top: 15px;
+    color: #007acc;
+}
+
+/* تحسينات استجابة الشاشة */
+@media (max-width: 768px) {
+    .product {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    button {
+        width: 80%;
+    }
 }

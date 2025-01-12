@@ -10,22 +10,30 @@
 </head>
 <body>
     <header>
-        <h1>مرحبًا بك في متجرنا!</h1>
-        <p>قم بإنشاء حساب للاستمتاع بمزايا متجرنا.</p>
+        <div class="container">
+            <h1>مرحبًا بك في متجرنا!</h1>
+            <p>قم بإنشاء حساب للاستمتاع بمزايا متجرنا.</p>
+        </div>
     </header>
 
     <main>
         <section id="register-form">
             <h2>إنشاء حساب</h2>
             <form id="userRegisterForm">
-                <label for="username"><i class="fas fa-user"></i> اسم المستخدم:</label>
-                <input type="text" id="username" name="username" placeholder="أدخل اسم المستخدم" required>
+                <div class="input-group">
+                    <label for="username"><i class="fas fa-user"></i> اسم المستخدم:</label>
+                    <input type="text" id="username" name="username" placeholder="أدخل اسم المستخدم" required>
+                </div>
 
-                <label for="email"><i class="fas fa-envelope"></i> البريد الإلكتروني:</label>
-                <input type="email" id="email" name="email" placeholder="البريد الإلكتروني" required>
+                <div class="input-group">
+                    <label for="email"><i class="fas fa-envelope"></i> البريد الإلكتروني:</label>
+                    <input type="email" id="email" name="email" placeholder="البريد الإلكتروني" required>
+                </div>
 
-                <label for="password"><i class="fas fa-lock"></i> كلمة المرور:</label>
-                <input type="password" id="password" name="password" placeholder="أدخل كلمة المرور" required>
+                <div class="input-group">
+                    <label for="password"><i class="fas fa-lock"></i> كلمة المرور:</label>
+                    <input type="password" id="password" name="password" placeholder="أدخل كلمة المرور" required>
+                </div>
 
                 <button type="submit">تسجيل</button>
             </form>
@@ -33,7 +41,7 @@
     </main>
 
     <footer>
-        <p>© 2025 متجرنا - كل الحقوق محفوظة</p>
+        <p>© 2025 متجرنا - جميع الحقوق محفوظة</p>
     </footer>
 
     <script src="../js/auth.js"></script>

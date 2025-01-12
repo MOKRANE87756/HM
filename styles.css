@@ -1,10 +1,11 @@
-/* تعيين خطوط وخلفيات صفحة الموقع */
+/* تعيين خط وحجم خلفية صفحة الموقع */
 body {
     font-family: 'Roboto', sans-serif;
     background: linear-gradient(to right, #74ebd5, #ACB6E5);
     margin: 0;
     padding: 0;
     color: #333;
+    overflow-x: hidden;
 }
 
 /* تصميم الهيدر */
@@ -13,12 +14,15 @@ header {
     padding: 50px 20px;
     background: #fff;
     margin-bottom: 30px;
-    border-radius: 8px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
     color: #333;
     font-size: 2.5em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 header p {
@@ -26,43 +30,50 @@ header p {
     color: #555;
 }
 
-/* تنسيق نموذج التسجيل */
+/* تصميم النموذج */
 #register-form {
-    max-width: 400px;
+    max-width: 450px;
     margin: 0 auto;
+    padding: 40px;
     background: #fff;
-    padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* تنسيق العناوين */
 #register-form h2 {
     text-align: center;
     color: #333;
-    font-size: 1.8em;
+    font-size: 2em;
     margin-bottom: 20px;
 }
 
-/* تنسيق الحقول */
-form label {
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
     font-weight: bold;
     margin-bottom: 8px;
     display: block;
     color: #555;
 }
 
-form input {
+.input-group input {
     width: 100%;
     padding: 12px;
-    margin-bottom: 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
 }
 
-/* إضافة تأثيرات للزر */
-form button {
+.input-group input:focus {
+    border-color: #00f2fe;
+    outline: none;
+}
+
+button {
     width: 100%;
     padding: 14px;
     background: linear-gradient(to right, #4facfe, #00f2fe);
@@ -71,15 +82,15 @@ form button {
     border-radius: 5px;
     font-size: 1.1em;
     cursor: pointer;
-    transition: background 0.3s, transform 0.1s;
+    transition: background 0.3s, transform 0.2s;
 }
 
-form button:hover {
+button:hover {
     background: linear-gradient(to right, #43cea2, #185a9d);
     transform: scale(1.05);
 }
 
-/* تصميم الفوتر */
+/* الفوتر */
 footer {
     text-align: center;
     padding: 20px;
@@ -87,7 +98,7 @@ footer {
     color: #fff;
 }
 
-/* استجابة الصفحة */
+/* استجابة للأجهزة المحمولة */
 @media (max-width: 600px) {
     header h1 {
         font-size: 2em;
@@ -97,11 +108,11 @@ footer {
         padding: 20px;
     }
 
-    form input {
+    .input-group input {
         font-size: 0.9em;
     }
 
-    form button {
+    button {
         font-size: 1em;
     }
 }

@@ -1,151 +1,46 @@
-/* تحسينات جمالية وعصرية */
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+    color: #333;
     margin: 0;
     padding: 0;
-    direction: rtl;
-    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
-    color: #333;
-    text-align: center;
 }
 
-header {
-    background: linear-gradient(90deg, #00c6ff, #0072ff);
-    color: white;
-    padding: 25px 0;
-    border-bottom: 5px solid #0056a8;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
 
-header h1 {
-    font-size: 2.5em;
-    margin: 0;
-}
-
-nav a {
-    margin: 0 20px;
-    color: white;
-    font-size: 1.2em;
+form label {
+    display: block;
     font-weight: bold;
-    text-decoration: none;
-    transition: color 0.4s;
+    margin-bottom: 8px;
 }
 
-nav a:hover {
-    color: #ffdd57;
-}
-
-/* تصميم قسم المنتجات */
-#shop {
-    padding: 40px 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.product {
-    background: #fff;
-    border: 2px solid #ddd;
-    border-radius: 15px;
-    margin: 20px;
-    width: 300px;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.product:hover {
-    transform: scale(1.05) rotate(1deg);
-    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
-}
-
-.product img {
+form input {
     width: 100%;
-    border-radius: 15px 15px 0 0;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-.product h3 {
-    font-size: 1.6em;
-    margin: 15px 0 10px;
-    color: #333;
-}
-
-.product p {
-    font-size: 1em;
-    color: #666;
-}
-
-button {
-    padding: 12px 30px;
-    margin: 10px 0;
-    background: linear-gradient(to right, #11998e, #38ef7d);
+form button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
     color: white;
-    font-size: 1.1em;
     border: none;
-    border-radius: 50px;
+    border-radius: 5px;
+    font-size: 1em;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: background 0.3s;
 }
 
-button:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+form button:hover {
+    background: linear-gradient(to right, #43cea2, #185a9d);
 }
-
-button:active {
-    transform: scale(0.98);
-}
-
-/* تصميم سلة التسوق */
-#cart {
-    padding: 40px 20px;
-    background: rgba(255, 255, 255, 0.9);
-    border-top: 4px solid #0072ff;
-}
-
-#cart ul {
-    padding: 0;
-    list-style: none;
-}
-
-#cart li {
-    padding: 15px;
-    margin: 15px 0;
-    background: rgba(240, 248, 255, 0.9);
-    border-left: 5px solid #4a90e2;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-#totalPrice {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #0072ff;
-    margin-top: 20px;
-}
-
-/* تحسين الاستجابة للشاشات الصغيرة */
-@media (max-width: 768px) {
-    .product {
-        width: 90%;
-    }
-
-    button {
-        width: 100%;
-    }
-}
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-    <meta charset="UTF-8">
-    <title>تسجيل كمستخدم</title>
-    <link rel="stylesheet" href="../css/form-styles.css">
-</head>
-<body>
-    <h1>تسجيل كمستخدم</h1>
-    <form>
-        <!-- نموذج تسجيل المستخدم -->
-    </form>
-    <script src="../js/auth-forms.js"></script>
-</body>
-</html>

@@ -1,29 +1,21 @@
-// scripts.js
 let cart = [];
+let totalPrice = 0;
 
-function addToCart(productName) {
-    cart.push(productName);
+function addToCart(id, name, price) {
+    cart.push({ id, name, price });
     updateCart();
 }
 
 function updateCart() {
-    const cartItemsElement = document.getElementById('cartItems');
-    cartItemsElement.innerHTML = '';
+    const cartItems = document.getElementById('cartItems');
+    cartItems.innerHTML = '';
+
     cart.forEach(item => {
-        const listItem = document.createElement('li');
-        listItem.textContent = item;
-        cartItemsElement.appendChild(listItem);
+        const li = document.createElement('li');
+        li.textContent = `${item.name} - ${item.price} ريال`;
+        cartItems.appendChild(li);
     });
 
-    // تحديث رابط سلة التسوق
-    const cartLink = document.getElementById('cartLink');
-    cartLink.textContent = `سلة التسوق (${cart.length})`;
+    totalPrice = cart.reduce((total, item) => total + item.price, 0);
+    document.getElementById('totalPrice').textContent = `إجمالي السعر: ${totalPrice} ريال`;
 }
-
-document.getElementById('checkoutButton').addEventListener('click', function() {
-    if (cart.length === 0) {
-        alert('سلة التسوق فارغة!');
-    } else {
-        alert('شكراً لشرائك! سيتم الدفع قريباً.');
-    }
-});

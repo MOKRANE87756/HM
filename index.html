@@ -7,46 +7,33 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- شريط التنقل -->
     <header>
-        <div class="logo">متجري الإلكتروني</div>
+        <h1>متجري الإلكتروني</h1>
         <nav>
-            <ul>
-                <li><a href="#home">الرئيسية</a></li>
-                <li><a href="#shop">المنتجات</a></li>
-                <li><a href="#contact">اتصل بنا</a></li>
-                <li><a href="#cart" id="cartLink">سلة التسوق</a></li>
-            </ul>
+            <a href="#shop">المنتجات</a>
+            <a href="#cart">سلة التسوق</a>
         </nav>
     </header>
 
-    <!-- قسم المنتجات -->
-    <section id="shop" class="products">
+    <section id="shop">
         <h2>منتجاتنا</h2>
-        <div class="product" data-product="منتج 1">
-            <img src="product1.jpg" alt="منتج 1">
+        <div class="product" data-id="1" data-price="100">
             <h3>منتج 1</h3>
-            <p>وصف المنتج 1.</p>
-            <button onclick="addToCart('منتج 1')">إضافة إلى العربة</button>
+            <p>السعر: 100 ريال</p>
+            <button onclick="addToCart(1, 'منتج 1', 100)">إضافة إلى السلة</button>
         </div>
-        <div class="product" data-product="منتج 2">
-            <img src="product2.jpg" alt="منتج 2">
+        <div class="product" data-id="2" data-price="200">
             <h3>منتج 2</h3>
-            <p>وصف المنتج 2.</p>
-            <button onclick="addToCart('منتج 2')">إضافة إلى العربة</button>
+            <p>السعر: 200 ريال</p>
+            <button onclick="addToCart(2, 'منتج 2', 200)">إضافة إلى السلة</button>
         </div>
     </section>
 
-    <!-- سلة التسوق -->
     <section id="cart">
         <h2>سلة التسوق</h2>
         <ul id="cartItems"></ul>
-        <button id="checkoutButton">الدفع</button>
+        <p id="totalPrice">إجمالي السعر: 0 ريال</p>
     </section>
-
-    <footer>
-        <p>© 2025 متجري الإلكتروني</p>
-    </footer>
 
     <script src="scripts.js"></script>
 </body>

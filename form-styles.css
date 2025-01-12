@@ -1,0 +1,39 @@
+#userChoice {
+    padding: 40px;
+    text-align: center;
+}
+
+#userChoice h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+#userChoice .buttons button {
+    padding: 15px 30px;
+    margin: 10px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#userChoice .buttons button:first-child {
+    background: linear-gradient(to right, #ff7eb3, #ff758c);
+    color: white;
+}
+
+#userChoice .buttons button:last-child {
+    background: linear-gradient(to right, #38ef7d, #11998e);
+    color: white;
+}
+
+#userForm, #merchantFormSection {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 500px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}

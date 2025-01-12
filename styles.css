@@ -1,46 +1,107 @@
+/* تعيين خطوط وخلفيات صفحة الموقع */
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #f5f7fa, #c3cfe2);
-    color: #333;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to right, #74ebd5, #ACB6E5);
     margin: 0;
     padding: 0;
+    color: #333;
 }
 
-form {
+/* تصميم الهيدر */
+header {
+    text-align: center;
+    padding: 50px 20px;
+    background: #fff;
+    margin-bottom: 30px;
+    border-radius: 8px;
+}
+
+header h1 {
+    color: #333;
+    font-size: 2.5em;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+/* تنسيق نموذج التسجيل */
+#register-form {
     max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    background: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
     border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* تنسيق العناوين */
+#register-form h2 {
+    text-align: center;
+    color: #333;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+/* تنسيق الحقول */
 form label {
-    display: block;
     font-weight: bold;
     margin-bottom: 8px;
+    display: block;
+    color: #555;
 }
 
 form input {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
     border-radius: 5px;
+    font-size: 1em;
 }
 
+/* إضافة تأثيرات للزر */
 form button {
     width: 100%;
-    padding: 12px;
+    padding: 14px;
     background: linear-gradient(to right, #4facfe, #00f2fe);
     color: white;
     border: none;
     border-radius: 5px;
-    font-size: 1em;
+    font-size: 1.1em;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background 0.3s, transform 0.1s;
 }
 
 form button:hover {
     background: linear-gradient(to right, #43cea2, #185a9d);
+    transform: scale(1.05);
+}
+
+/* تصميم الفوتر */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: #fff;
+}
+
+/* استجابة الصفحة */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    #register-form {
+        padding: 20px;
+    }
+
+    form input {
+        font-size: 0.9em;
+    }
+
+    form button {
+        font-size: 1em;
+    }
 }

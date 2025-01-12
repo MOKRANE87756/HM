@@ -134,3 +134,18 @@ button:active {
         width: 100%;
     }
 }
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>تسجيل كمستخدم</title>
+    <link rel="stylesheet" href="../css/form-styles.css">
+</head>
+<body>
+    <h1>تسجيل كمستخدم</h1>
+    <form>
+        <!-- نموذج تسجيل المستخدم -->
+    </form>
+    <script src="../js/auth-forms.js"></script>
+</body>
+</html>

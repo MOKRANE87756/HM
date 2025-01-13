@@ -1,57 +1,53 @@
-/* تحسين التصميم العام */
-body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to right, #1d3557, #457b9d);
-    color: #f1faee;
-    text-align: center;
-    padding: 0;
-    margin: 0;
+nav {
+    background: #2a9d8f;
+    padding: 15px;
 }
 
-header {
-    background: #e63946;
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
     color: #fff;
-    padding: 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+nav ul li a:hover {
+    background: #264653;
+}
+
+/* تأثير عند تمرير الماوس على نتائج المباريات */
+.match {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.match:hover {
+    transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-header h1 {
-    margin: 0;
-    font-size: 2.5rem;
+/* شريط بحث لتصفية المباريات */
+.search-bar {
+    margin: 20px 0;
+    text-align: center;
 }
 
-main {
-    padding: 20px;
-}
-
-#matches {
-    margin-top: 20px;
-}
-
-.match {
-    padding: 20px;
-    margin: 15px auto;
-    border: 1px solid #ddd;
-    background: #f4f4f4;
-    color: #333;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-}
-
-.match h3 {
-    font-size: 1.8rem;
-    color: #1d3557;
-}
-
-.match p {
-    font-size: 1.2rem;
-    margin: 5px 0;
-}
-
-footer {
-    margin-top: 30px;
+.search-bar input {
     padding: 10px;
-    background: #1d3557;
-    color: #f1faee;
+    width: 80%;
+    max-width: 400px;
+    border: 2px solid #1d3557;
+    border-radius: 5px;
 }

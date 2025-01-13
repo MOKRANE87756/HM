@@ -1,22 +1,29 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const resultsContainer = document.getElementById("results");
+// استبدل YOUR_API_KEY بالمفتاح الذي حصلت عليه
+const API_KEY = 'YOUR_API_KEY';
+const API_URL = 'https://v3.football.api-sports.io/fixtures?season=2023&league=39'; // مثال: الدوري الإنجليزي
 
-    fetch('https://api.example.com/football-matches') // استخدم واجهة برمجة تطبيقات مناسبة
-        .then(response => response.json())
-        .then(data => {
-            data.matches.forEach(match => {
-                const matchDiv = document.createElement('div');
-                matchDiv.className = 'match';
-                matchDiv.innerHTML = `
-                    <h3>${match.homeTeam} vs ${match.awayTeam}</h3>
-                    <p>النتيجة: ${match.homeScore} - ${match.awayScore}</p>
-                    <p>التاريخ: ${match.date}</p>
-                `;
-                resultsContainer.appendChild(matchDiv);
-            });
-        })
-        .catch(error => {
-            console.error('Error fetching match data:', error);
-            resultsContainer.innerHTML = '<p>تعذر جلب النتائج. يرجى المحاولة لاحقًا.</p>';
-        });
+fetch(API_URL, {
+    method: 'GET',
+    headers: {
+        'x-rapidapi-key': API_KEY,
+        'x-rapidapi-host': 'v3.football.api-sports.io'
+    }
+})
+.then(response => response.json())
+.then(data => {
+    const resultsContainer = document.getElementById('results');
+    data.response.forEach(match => {
+        const matchDiv = document.createElement('div');
+        matchDiv.className = 'match';
+        matchDiv.innerHTML = `
+            <h3>${match.teams.home.name} vs ${match.teams.away.name}</h3>
+            <p>النتيجة: ${match.goals.home} - ${match.goals.away}</p>
+            <p>التاريخ: ${new Date(match.fixture.date).toLocaleString()}</p>
+        `;
+        resultsContainer.appendChild(matchDiv);
+    });
+})
+.catch(error => {
+    console.error('Error fetching match data:', error);
+    document.getElementById('results').innerHTML = '<p>تعذر جلب النتائج. يرجى المحاولة لاحقًا.</p>';
 });

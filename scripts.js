@@ -10,3 +10,12 @@ data.response.forEach(match => {
     `;
     resultsContainer.appendChild(matchDiv);
 });
+document.getElementById('searchInput').addEventListener('input', (event) => {
+    const searchTerm = event.target.value.toLowerCase();
+    const matches = document.querySelectorAll('.match');
+    
+    matches.forEach(match => {
+        const matchText = match.textContent.toLowerCase();
+        match.style.display = matchText.includes(searchTerm) ? 'block' : 'none';
+    });
+});

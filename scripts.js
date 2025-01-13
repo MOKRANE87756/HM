@@ -26,9 +26,3 @@ fetch(API_URL, {
     console.error('Error fetching match data:', error);
     document.getElementById('results').innerHTML = '<p>تعذر جلب النتائج. يرجى المحاولة لاحقًا.</p>';
 });
-// إضافة خاصية الإظهار التدريجي للنتائج
-document.getElementById('results').style.opacity = 0;
-setTimeout(() => {
-    document.getElementById('results').style.transition = "opacity 1s";
-    document.getElementById('results').style.opacity = 1;
-}, 500);

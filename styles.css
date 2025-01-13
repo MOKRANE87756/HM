@@ -44,13 +44,29 @@ nav ul li a:hover {
     background-color: #ffffff;
     margin: 20px;
     border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.results-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
 }
 
 .match {
-    background-color: #e9f7f6;
-    padding: 10px;
-    margin: 10px 0;
+    background-color: #2a9d8f;
+    color: white;
+    padding: 15px;
     border-radius: 8px;
+    width: 250px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.match:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
 }
 
 footer {
@@ -76,23 +92,4 @@ footer {
     #matches {
         padding: 15px;
     }
-}
-.scrollable-results {
-    display: flex;
-    overflow-x: auto;
-    gap: 10px;
-    padding: 10px;
-}
-
-.match {
-    background-color: #2a9d8f;
-    padding: 15px;
-    border-radius: 8px;
-    width: 250px;
-    color: white;
-    transition: transform 0.3s ease;
-}
-
-.match:hover {
-    transform: scale(1.05);
 }

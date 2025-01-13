@@ -3,29 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نتائج مباريات كرة القدم</title>
+    <title>نتائج المباريات</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>نتائج مباريات كرة القدم</h1>
+        <h1>نتائج المباريات</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#matches">المباريات</a></li>
+                <li><a href="#contact">اتصل بنا</a></li>
+            </ul>
+        </nav>
     </header>
-    <main>
-        <section id="matches">
-            <h2>المباريات الحالية</h2>
-            <div id="results"></div>
-        </section>
-    </main>
+
+    <section id="matches">
+        <h2>آخر المباريات</h2>
+        <div id="results"></div> <!-- سيتم عرض النتائج هنا -->
+    </section>
+
+    <footer>
+        <p>&copy; 2025 جميع الحقوق محفوظة</p>
+    </footer>
+
     <script src="script.js"></script>
-    <nav>
-    <ul>
-        <li><a href="#home">الرئيسية</a></li>
-        <li><a href="#matches">المباريات</a></li>
-        <li><a href="#contact">اتصل بنا</a></li>
-    </ul>
-</nav>
-<div class="search-bar">
-    <input type="text" id="searchInput" placeholder="ابحث عن فريق أو مباراة...">
-</div>
 </body>
 </html>

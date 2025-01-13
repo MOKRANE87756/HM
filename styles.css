@@ -1,15 +1,27 @@
+/* تحسين التصميم العام */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #1d3557, #457b9d);
+    color: #f1faee;
     text-align: center;
-    padding: 20px;
+    padding: 0;
+    margin: 0;
 }
 
 header {
-    background-color: #28a745;
-    color: white;
-    padding: 10px 0;
+    background: #e63946;
+    color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+main {
+    padding: 20px;
 }
 
 #matches {
@@ -17,9 +29,29 @@ header {
 }
 
 .match {
-    padding: 15px;
-    margin: 10px 0;
+    padding: 20px;
+    margin: 15px auto;
     border: 1px solid #ddd;
-    background-color: white;
-    border-radius: 5px;
+    background: #f4f4f4;
+    color: #333;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+}
+
+.match h3 {
+    font-size: 1.8rem;
+    color: #1d3557;
+}
+
+.match p {
+    font-size: 1.2rem;
+    margin: 5px 0;
+}
+
+footer {
+    margin-top: 30px;
+    padding: 10px;
+    background: #1d3557;
+    color: #f1faee;
 }

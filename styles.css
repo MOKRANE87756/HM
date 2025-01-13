@@ -1,6 +1,20 @@
-nav {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f9;
+}
+
+header {
     background: #2a9d8f;
-    padding: 15px;
+    color: white;
+    padding: 20px;
+    text-align: center;
 }
 
 nav ul {
@@ -16,38 +30,50 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fff;
+    color: white;
     text-decoration: none;
-    font-size: 1.2rem;
-    padding: 8px 15px;
-    border-radius: 5px;
-    transition: background 0.3s ease;
+    font-size: 1.1rem;
 }
 
 nav ul li a:hover {
-    background: #264653;
+    text-decoration: underline;
 }
 
-/* تأثير عند تمرير الماوس على نتائج المباريات */
+#matches {
+    padding: 20px;
+    background-color: #ffffff;
+    margin: 20px;
+    border-radius: 8px;
+}
+
 .match {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.match:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* شريط بحث لتصفية المباريات */
-.search-bar {
-    margin: 20px 0;
-    text-align: center;
-}
-
-.search-bar input {
+    background-color: #e9f7f6;
     padding: 10px;
-    width: 80%;
-    max-width: 400px;
-    border: 2px solid #1d3557;
-    border-radius: 5px;
+    margin: 10px 0;
+    border-radius: 8px;
+}
+
+footer {
+    background: #264653;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* تصميم متجاوب */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    #matches {
+        padding: 15px;
+    }
 }
